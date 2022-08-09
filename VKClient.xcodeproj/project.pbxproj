@@ -11,6 +11,28 @@
 		D016FE0A289BF1AD001DA065 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D016FE09289BF1AD001DA065 /* ContentView.swift */; };
 		D016FE0C289BF1AE001DA065 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D016FE0B289BF1AE001DA065 /* Assets.xcassets */; };
 		D016FE0F289BF1AE001DA065 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D016FE0E289BF1AE001DA065 /* Preview Assets.xcassets */; };
+		D016FE1F289BF3E5001DA065 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = D016FE1E289BF3E5001DA065 /* CombineMoya */; };
+		D016FE21289BF3E5001DA065 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = D016FE20289BF3E5001DA065 /* Moya */; };
+		D016FE24289BF496001DA065 /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = D016FE23289BF496001DA065 /* CombineExt */; };
+		D016FE2E289BF596001DA065 /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D016FE2D289BF596001DA065 /* Consts.swift */; };
+		D05E65A228A05E1500A9FB6E /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05E65A128A05E1500A9FB6E /* Provider.swift */; };
+		D05E65A528A05EA600A9FB6E /* RepresentableWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05E65A428A05EA600A9FB6E /* RepresentableWebView.swift */; };
+		D05E65A828A05F4700A9FB6E /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05E65A728A05F4700A9FB6E /* LocalStorage.swift */; };
+		D05E65AF28A0620E00A9FB6E /* FriendListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05E65AE28A0620E00A9FB6E /* FriendListViewModel.swift */; };
+		D05E65B128A0621A00A9FB6E /* FriendListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05E65B028A0621A00A9FB6E /* FriendListView.swift */; };
+		D05E65B428A067EE00A9FB6E /* WkWebViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05E65B328A067EE00A9FB6E /* WkWebViewExtension.swift */; };
+		D05E65B628A06BE200A9FB6E /* CustomUrlError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05E65B528A06BE200A9FB6E /* CustomUrlError.swift */; };
+		D05E65B928A1A71300A9FB6E /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05E65B828A1A71300A9FB6E /* URLExtension.swift */; };
+		D05E65BC28A1A80300A9FB6E /* AuthWebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05E65BB28A1A80300A9FB6E /* AuthWebViewModel.swift */; };
+		D05E65BE28A1A80E00A9FB6E /* AuthWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05E65BD28A1A80E00A9FB6E /* AuthWebView.swift */; };
+		D09FEE7528A1B04A0042B078 /* FriendServerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FEE7428A1B04A0042B078 /* FriendServerModel.swift */; };
+		D09FEE7828A1B0600042B078 /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FEE7728A1B0600042B078 /* FriendModel.swift */; };
+		D09FEE7A28A1B3150042B078 /* FriendApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FEE7928A1B3150042B078 /* FriendApi.swift */; };
+		D09FEE7C28A1B3300042B078 /* FriendApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FEE7B28A1B3300042B078 /* FriendApiService.swift */; };
+		D09FEE7E28A1B79C0042B078 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FEE7D28A1B79C0042B078 /* APIError.swift */; };
+		D09FEE8128A1BA6C0042B078 /* FriendMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FEE8028A1BA6C0042B078 /* FriendMapper.swift */; };
+		D09FEE8328A1BB8E0042B078 /* BaseModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FEE8228A1BB8E0042B078 /* BaseModelMapper.swift */; };
+		D0A8DEC928A1C3FF00E591A3 /* FriendCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A8DEC828A1C3FF00E591A3 /* FriendCellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +41,25 @@
 		D016FE09289BF1AD001DA065 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D016FE0B289BF1AE001DA065 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D016FE0E289BF1AE001DA065 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D016FE2D289BF596001DA065 /* Consts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
+		D05E65A128A05E1500A9FB6E /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		D05E65A428A05EA600A9FB6E /* RepresentableWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepresentableWebView.swift; sourceTree = "<group>"; };
+		D05E65A728A05F4700A9FB6E /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
+		D05E65AE28A0620E00A9FB6E /* FriendListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewModel.swift; sourceTree = "<group>"; };
+		D05E65B028A0621A00A9FB6E /* FriendListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListView.swift; sourceTree = "<group>"; };
+		D05E65B328A067EE00A9FB6E /* WkWebViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WkWebViewExtension.swift; sourceTree = "<group>"; };
+		D05E65B528A06BE200A9FB6E /* CustomUrlError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUrlError.swift; sourceTree = "<group>"; };
+		D05E65B828A1A71300A9FB6E /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
+		D05E65BB28A1A80300A9FB6E /* AuthWebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthWebViewModel.swift; sourceTree = "<group>"; };
+		D05E65BD28A1A80E00A9FB6E /* AuthWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthWebView.swift; sourceTree = "<group>"; };
+		D09FEE7428A1B04A0042B078 /* FriendServerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendServerModel.swift; sourceTree = "<group>"; };
+		D09FEE7728A1B0600042B078 /* FriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
+		D09FEE7928A1B3150042B078 /* FriendApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendApi.swift; sourceTree = "<group>"; };
+		D09FEE7B28A1B3300042B078 /* FriendApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendApiService.swift; sourceTree = "<group>"; };
+		D09FEE7D28A1B79C0042B078 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		D09FEE8028A1BA6C0042B078 /* FriendMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendMapper.swift; sourceTree = "<group>"; };
+		D09FEE8228A1BB8E0042B078 /* BaseModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModelMapper.swift; sourceTree = "<group>"; };
+		D0A8DEC828A1C3FF00E591A3 /* FriendCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +67,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D016FE21289BF3E5001DA065 /* Moya in Frameworks */,
+				D016FE24289BF496001DA065 /* CombineExt in Frameworks */,
+				D016FE1F289BF3E5001DA065 /* CombineMoya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,9 +95,14 @@
 		D016FE06289BF1AD001DA065 /* VKClient */ = {
 			isa = PBXGroup;
 			children = (
+				D01FC2A728A1BD8E003F644B /* Resources */,
+				D016FE15289BF1BA001DA065 /* Models */,
+				D016FE16289BF1CC001DA065 /* Services */,
+				D016FE19289BF230001DA065 /* Modules */,
+				D016FE1B289BF268001DA065 /* Helpers */,
+				D016FE1C289BF277001DA065 /* Components */,
 				D016FE07289BF1AD001DA065 /* VKClientApp.swift */,
 				D016FE09289BF1AD001DA065 /* ContentView.swift */,
-				D016FE0B289BF1AE001DA065 /* Assets.xcassets */,
 				D016FE0D289BF1AE001DA065 /* Preview Content */,
 			);
 			path = VKClient;
@@ -65,6 +114,164 @@
 				D016FE0E289BF1AE001DA065 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D016FE15289BF1BA001DA065 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D09FEE7F28A1BA590042B078 /* Mappers */,
+				D09FEE7628A1B0500042B078 /* LocalModels */,
+				D016FE18289BF20F001DA065 /* ServerModels */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D016FE16289BF1CC001DA065 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D05E65A628A05F3100A9FB6E /* Storage */,
+				D05E659E28A05DD900A9FB6E /* API */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		D016FE18289BF20F001DA065 /* ServerModels */ = {
+			isa = PBXGroup;
+			children = (
+				D09FEE7428A1B04A0042B078 /* FriendServerModel.swift */,
+			);
+			path = ServerModels;
+			sourceTree = "<group>";
+		};
+		D016FE19289BF230001DA065 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				D05E65BA28A1A7EC00A9FB6E /* AuthWebView */,
+				D016FE1A289BF241001DA065 /* FriendListView */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		D016FE1A289BF241001DA065 /* FriendListView */ = {
+			isa = PBXGroup;
+			children = (
+				D0A8DEC528A1C3D100E591A3 /* FriendCell */,
+				D05E65AE28A0620E00A9FB6E /* FriendListViewModel.swift */,
+				D05E65B028A0621A00A9FB6E /* FriendListView.swift */,
+			);
+			path = FriendListView;
+			sourceTree = "<group>";
+		};
+		D016FE1B289BF268001DA065 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D05E65B228A067CE00A9FB6E /* Extensions */,
+				D016FE2D289BF596001DA065 /* Consts.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		D016FE1C289BF277001DA065 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D05E65A328A05E9000A9FB6E /* WebView */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		D01FC2A728A1BD8E003F644B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D016FE0B289BF1AE001DA065 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D05E659E28A05DD900A9FB6E /* API */ = {
+			isa = PBXGroup;
+			children = (
+				D05E65A028A05DFD00A9FB6E /* Error */,
+				D05E659F28A05DE700A9FB6E /* FriendService */,
+				D05E65A128A05E1500A9FB6E /* Provider.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		D05E659F28A05DE700A9FB6E /* FriendService */ = {
+			isa = PBXGroup;
+			children = (
+				D09FEE7928A1B3150042B078 /* FriendApi.swift */,
+				D09FEE7B28A1B3300042B078 /* FriendApiService.swift */,
+			);
+			path = FriendService;
+			sourceTree = "<group>";
+		};
+		D05E65A028A05DFD00A9FB6E /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				D05E65B528A06BE200A9FB6E /* CustomUrlError.swift */,
+				D09FEE7D28A1B79C0042B078 /* APIError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		D05E65A328A05E9000A9FB6E /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				D05E65A428A05EA600A9FB6E /* RepresentableWebView.swift */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
+		D05E65A628A05F3100A9FB6E /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				D05E65A728A05F4700A9FB6E /* LocalStorage.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		D05E65B228A067CE00A9FB6E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D05E65B328A067EE00A9FB6E /* WkWebViewExtension.swift */,
+				D05E65B828A1A71300A9FB6E /* URLExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D05E65BA28A1A7EC00A9FB6E /* AuthWebView */ = {
+			isa = PBXGroup;
+			children = (
+				D05E65BB28A1A80300A9FB6E /* AuthWebViewModel.swift */,
+				D05E65BD28A1A80E00A9FB6E /* AuthWebView.swift */,
+			);
+			path = AuthWebView;
+			sourceTree = "<group>";
+		};
+		D09FEE7628A1B0500042B078 /* LocalModels */ = {
+			isa = PBXGroup;
+			children = (
+				D09FEE7728A1B0600042B078 /* FriendModel.swift */,
+			);
+			path = LocalModels;
+			sourceTree = "<group>";
+		};
+		D09FEE7F28A1BA590042B078 /* Mappers */ = {
+			isa = PBXGroup;
+			children = (
+				D09FEE8028A1BA6C0042B078 /* FriendMapper.swift */,
+				D09FEE8228A1BB8E0042B078 /* BaseModelMapper.swift */,
+			);
+			path = Mappers;
+			sourceTree = "<group>";
+		};
+		D0A8DEC528A1C3D100E591A3 /* FriendCell */ = {
+			isa = PBXGroup;
+			children = (
+				D0A8DEC828A1C3FF00E591A3 /* FriendCellView.swift */,
+			);
+			path = FriendCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +290,11 @@
 			dependencies = (
 			);
 			name = VKClient;
+			packageProductDependencies = (
+				D016FE1E289BF3E5001DA065 /* CombineMoya */,
+				D016FE20289BF3E5001DA065 /* Moya */,
+				D016FE23289BF496001DA065 /* CombineExt */,
+			);
 			productName = VKClient;
 			productReference = D016FE04289BF1AD001DA065 /* VKClient.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +323,10 @@
 				Base,
 			);
 			mainGroup = D016FDFB289BF1AD001DA065;
+			packageReferences = (
+				D016FE1D289BF3E5001DA065 /* XCRemoteSwiftPackageReference "Moya" */,
+				D016FE22289BF496001DA065 /* XCRemoteSwiftPackageReference "CombineExt" */,
+			);
 			productRefGroup = D016FE05289BF1AD001DA065 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,8 +353,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D05E65B928A1A71300A9FB6E /* URLExtension.swift in Sources */,
+				D09FEE8328A1BB8E0042B078 /* BaseModelMapper.swift in Sources */,
+				D09FEE7528A1B04A0042B078 /* FriendServerModel.swift in Sources */,
+				D05E65BC28A1A80300A9FB6E /* AuthWebViewModel.swift in Sources */,
+				D05E65A228A05E1500A9FB6E /* Provider.swift in Sources */,
+				D05E65BE28A1A80E00A9FB6E /* AuthWebView.swift in Sources */,
 				D016FE0A289BF1AD001DA065 /* ContentView.swift in Sources */,
+				D05E65A528A05EA600A9FB6E /* RepresentableWebView.swift in Sources */,
+				D05E65AF28A0620E00A9FB6E /* FriendListViewModel.swift in Sources */,
+				D05E65A828A05F4700A9FB6E /* LocalStorage.swift in Sources */,
+				D0A8DEC928A1C3FF00E591A3 /* FriendCellView.swift in Sources */,
+				D016FE2E289BF596001DA065 /* Consts.swift in Sources */,
+				D09FEE7C28A1B3300042B078 /* FriendApiService.swift in Sources */,
+				D09FEE7828A1B0600042B078 /* FriendModel.swift in Sources */,
+				D05E65B128A0621A00A9FB6E /* FriendListView.swift in Sources */,
+				D05E65B428A067EE00A9FB6E /* WkWebViewExtension.swift in Sources */,
 				D016FE08289BF1AD001DA065 /* VKClientApp.swift in Sources */,
+				D05E65B628A06BE200A9FB6E /* CustomUrlError.swift in Sources */,
+				D09FEE7A28A1B3150042B078 /* FriendApi.swift in Sources */,
+				D09FEE7E28A1B79C0042B078 /* APIError.swift in Sources */,
+				D09FEE8128A1BA6C0042B078 /* FriendMapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +574,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D016FE1D289BF3E5001DA065 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				kind = exactVersion;
+				version = 15.0.0;
+			};
+		};
+		D016FE22289BF496001DA065 /* XCRemoteSwiftPackageReference "CombineExt" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CombineCommunity/CombineExt";
+			requirement = {
+				kind = exactVersion;
+				version = 1.7.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D016FE1E289BF3E5001DA065 /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D016FE1D289BF3E5001DA065 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = CombineMoya;
+		};
+		D016FE20289BF3E5001DA065 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D016FE1D289BF3E5001DA065 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		D016FE23289BF496001DA065 /* CombineExt */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D016FE22289BF496001DA065 /* XCRemoteSwiftPackageReference "CombineExt" */;
+			productName = CombineExt;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D016FDFC289BF1AD001DA065 /* Project object */;
 }
