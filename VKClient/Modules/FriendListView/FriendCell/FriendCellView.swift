@@ -34,6 +34,12 @@ private extension FriendCellView {
 
 struct FriendCellView_Previews: PreviewProvider {
     static var previews: some View {
-        FriendCellView(model: FriendModel(id: 1, firstName: "Dima", secondName: "Panteleev", isOnline: true))
+        FriendCellView(model: FriendModel(id: 1,
+                                          isOnline: false,
+                                          trackCode: "2r4r453",
+                                          firstName: "Dmitriy",
+                                          lastName: "Panteleev",
+                                          canAccessClosed: true,
+                                          isClosed: false))
     }
 }

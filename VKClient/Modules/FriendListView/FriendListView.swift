@@ -12,14 +12,27 @@ struct FriendListView: View {
     @StateObject private var viewModel = FriendListViewModel()
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            .onAppear(perform: onApperSend)
+        VStack {
+            Text("My Friends")
+                .onAppear(perform: onApperSend)
+            tableView()
+        }
     }
     
     func onApperSend() {
         viewModel.input.onAppear.send()
     }
 
+}
+
+private extension FriendListView {
+    func tableView() -> some View {
+        ScrollView(.vertical, showsIndicators: false) {
+            ForEach(viewModel.output.friendList) { model in
+                FriendCellView(model: model)
+            }
+        }
+    }
 }
 
 //private extension FriendListView {

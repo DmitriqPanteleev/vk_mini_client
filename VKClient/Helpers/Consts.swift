@@ -26,15 +26,6 @@ struct Consts {
     
     // To get friends from VK API
     struct GetFriends {
-        static let baseURL = "https://api.vk.com/method/friends.get"
-        static let clientIDKey = "client_id"
-        static let fieldsKey = "fields"
-        static let fieldsValue = "online"
-        static let tokenKey = "access_token"
-        static let countKey = "count"
-        static let countValue = "10"
-        static let verKey = "v"
-        static let verValue = "5.131"
-//        static let params = "?count=\(count)&fields=online&access_token=\(LocalStorage.current.token)&v=5.131"
+        static let baseURL = "https://api.vk.com"
     }
 }

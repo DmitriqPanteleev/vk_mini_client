@@ -11,14 +11,21 @@ final class FriendModelMapper: BaseModelMapper<FriendServerModel, FriendModel> {
     
     override func toLocal(serverEntity: FriendServerModel) -> FriendModel {
         FriendModel(id: serverEntity.id,
-                    firstName: serverEntity.firstName,
-                    secondName: serverEntity.secondName,
-                    isOnline: isOnlineCast(serverEntity.isOnline))
+                    isOnline: isOnlineCast(serverEntity.online),
+                    trackCode: serverEntity.trackCode ?? "",
+                    firstName: serverEntity.firstName ?? "",
+                    lastName: serverEntity.lastName ?? "",
+                    canAccessClosed: serverEntity.canAccessClosed ?? false,
+                    isClosed: serverEntity.isClosed ?? false)
     }
 }
 
 private extension FriendModelMapper {
-    func isOnlineCast(_ serverIsOnline: Int) -> Bool {
+    func isOnlineCast(_ serverIsOnline: Int?) -> Bool {
+        if (serverIsOnline == nil) {
+            return true
+        }
+        
         switch (serverIsOnline) {
         case 0: return false
         case 1: return true

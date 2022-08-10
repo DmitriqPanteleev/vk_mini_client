@@ -16,10 +16,12 @@ struct FriendApiService {
 
 extension FriendApiService {
     
-    func getFriends() -> AnyPublisher<[FriendServerModel], APIError> {
+    func getFriends() -> AnyPublisher<[FriendModel], APIError> {
         provider.requestPublisher(.getFriends)
             .filterSuccessfulStatusCodes()
-            .map([FriendServerModel].self)
+            .map(ServerResponse.self)
+            .map { $0.response.items }
+            .map { FriendModelMapper().toLocal(list: $0) }
             .mapError({ _ in
                     .bad
             })

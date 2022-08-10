@@ -95,13 +95,13 @@
 		D016FE06289BF1AD001DA065 /* VKClient */ = {
 			isa = PBXGroup;
 			children = (
+				D0A8DECA28A2FF6100E591A3 /* App */,
 				D01FC2A728A1BD8E003F644B /* Resources */,
 				D016FE15289BF1BA001DA065 /* Models */,
 				D016FE16289BF1CC001DA065 /* Services */,
 				D016FE19289BF230001DA065 /* Modules */,
 				D016FE1B289BF268001DA065 /* Helpers */,
 				D016FE1C289BF277001DA065 /* Components */,
-				D016FE07289BF1AD001DA065 /* VKClientApp.swift */,
 				D016FE09289BF1AD001DA065 /* ContentView.swift */,
 				D016FE0D289BF1AE001DA065 /* Preview Content */,
 			);
@@ -272,6 +272,14 @@
 				D0A8DEC828A1C3FF00E591A3 /* FriendCellView.swift */,
 			);
 			path = FriendCell;
+			sourceTree = "<group>";
+		};
+		D0A8DECA28A2FF6100E591A3 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				D016FE07289BF1AD001DA065 /* VKClientApp.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

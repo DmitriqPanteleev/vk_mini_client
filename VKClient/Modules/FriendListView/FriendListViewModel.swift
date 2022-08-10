@@ -7,17 +7,20 @@
 
 import Foundation
 import Combine
+import CombineExt
 
 final class FriendListViewModel: ObservableObject {
     
     let apiService = FriendApiService()
     
-    let input = Input()
-    @Published var output = Output()
+    let input: Input
+    @Published var output: Output
     
     private var cancellable = Set<AnyCancellable>()
     
     init() {
+        self.input = Input()
+        self.output = Output()
         setupBindings()
     }
     
@@ -27,16 +30,30 @@ final class FriendListViewModel: ObservableObject {
     
     func bindRequest() {
         
-        input.onAppear
-            .map { [unowned self] in
+        let request = input.onAppear
+            .map{ [unowned self] in
                 self.apiService.getFriends()
+                    // CombineExt's method to wrap event
+                    // so event can be alive even after errors for example
+                    .materialize()
             }
             .switchToLatest()
-            .sink { error in
-                print(error)
-            } receiveValue: { models in
-                for model in models {
-                    self.output.friendList.append(FriendModelMapper().toLocal(serverEntity: model))
+            // method for many subscribers
+            .share()
+        
+        request
+            .values()
+            .sink { [weak self] in
+                self?.output.friendList = $0
+            }
+            .store(in: &cancellable)
+        
+        request
+            .failures()
+            .sink {
+                switch $0 {
+                case .bad: print("bad")
+                case .notFound: print("notFound")
                 }
             }
             .store(in: &cancellable)

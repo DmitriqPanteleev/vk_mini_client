@@ -9,11 +9,14 @@ import Foundation
 
 struct FriendModel: Identifiable {
     let id: Int
-    let firstName: String
-    let secondName: String
     let isOnline: Bool
+    let trackCode: String
+    let firstName: String
+    let lastName: String
+    let canAccessClosed: Bool
+    let isClosed: Bool
     
     var fullName: String {
-        "\(secondName) \(firstName)"
+        "\(lastName) \(firstName)"
     }
 }

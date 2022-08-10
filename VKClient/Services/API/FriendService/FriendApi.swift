@@ -13,32 +13,10 @@ enum FriendApi {
     case getFriend(id: Int)
 }
 
-private extension FriendApi {
-
-    // to create full url
-    var buildedURL: URL? {
-        let storage = LocalStorage.current
-        
-        guard var urlComponents = URLComponents(string: Consts.GetFriends.baseURL) else {
-            return nil
-        }
-        
-        let items = [
-            URLQueryItem(name: Consts.GetFriends.countKey, value: Consts.GetFriends.countValue),
-            URLQueryItem(name: Consts.GetFriends.fieldsKey, value: Consts.GetFriends.fieldsValue),
-            URLQueryItem(name: Consts.GetFriends.tokenKey, value: storage.token),
-            URLQueryItem(name: Consts.GetFriends.verKey, value: Consts.GetFriends.verValue)
-        ]
-        
-        urlComponents.queryItems = items
-        return urlComponents.url
-    }
-}
-
 extension FriendApi: TargetType {
     
     var baseURL: URL {
-        self.buildedURL!
+        URL(string: Consts.GetFriends.baseURL)!
     }
     
     var path: String {
@@ -46,7 +24,7 @@ extension FriendApi: TargetType {
         case let .getFriend(id):
             return "" // TODO: add path
         case .getFriends:
-            return "" // TODO: add path
+            return "/method/friends.get"
         }
     }
     
@@ -55,7 +33,13 @@ extension FriendApi: TargetType {
     }
     
     var task: Task {
-        .requestPlain
+        var params: [String: Any] = [:]
+        params["access_token"] = LocalStorage.current.token
+        params["count"] = 100
+        params["fields"] = "online"
+        params["v"] = "5.131"
+        
+        return .requestParameters(parameters: params, encoding: URLEncoding.default)
     }
     
     var headers: [String : String]? {
