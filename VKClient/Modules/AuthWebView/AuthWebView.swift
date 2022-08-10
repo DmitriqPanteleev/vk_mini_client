@@ -12,25 +12,26 @@ struct AuthWebView: View {
     @StateObject var viewModel = AuthWebViewModel()
     
     var body: some View {
-        if viewModel.token == nil {
-            webView
-        } else {
+        if viewModel.output.showFriends {
             FriendListView()
+        } else {
+            webView
         }
     }
 }
+
 
 private extension AuthWebView {
-    
-    @ViewBuilder var webView: some View {
-        if let url = viewModel.url {
-            WebViewRepresentable(url: url, onError: { error in
-                print("Error: \(error.description)")
-            })
+    @ViewBuilder var webView: some View{
+        if let url = viewModel.url{
+            WebViewRepresentable(url: url,
+                                 onError: { error in
+                                    print(error.description)
+                                },
+                                 onComplited: viewModel.input.onComplitedWebView)
         }
     }
 }
-
 
 struct AuthWebView_Previews: PreviewProvider {
     static var previews: some View {

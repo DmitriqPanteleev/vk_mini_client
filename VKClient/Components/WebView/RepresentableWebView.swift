@@ -7,10 +7,12 @@
 
 import WebKit
 import SwiftUI
+import Combine
 
 struct WebViewRepresentable: UIViewRepresentable {
     let url: URL
     let onError: (CustomURLError) -> Void
+    let onComplited: PassthroughSubject<Void, Never>
     
     // both methods we should override
     func makeUIView(context: Context) -> WKWebView {
@@ -28,11 +30,17 @@ struct WebViewRepresentable: UIViewRepresentable {
     
     //
     func makeCoordinator() -> Coordinator {
-        return Coordinator()
+        return Coordinator(onComplited: onComplited)
     }
     
     
     final class Coordinator: NSObject, WKNavigationDelegate {
+        
+        let onComplited: PassthroughSubject<Void, Never>
+        
+        init(onComplited: PassthroughSubject<Void, Never>) {
+            self.onComplited = onComplited
+        }
         
         func webView(_ webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
             print(webView.url)
@@ -66,6 +74,7 @@ struct WebViewRepresentable: UIViewRepresentable {
                         }
                     }
                 }
+                onComplited.send()
             }
         }
     }

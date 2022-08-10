@@ -33,6 +33,7 @@
 		D09FEE8128A1BA6C0042B078 /* FriendMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FEE8028A1BA6C0042B078 /* FriendMapper.swift */; };
 		D09FEE8328A1BB8E0042B078 /* BaseModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FEE8228A1BB8E0042B078 /* BaseModelMapper.swift */; };
 		D0A8DEC928A1C3FF00E591A3 /* FriendCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A8DEC828A1C3FF00E591A3 /* FriendCellView.swift */; };
+		D0B0BEE828A4119100C3BEFD /* URLConstructors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B0BEE728A4119100C3BEFD /* URLConstructors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		D09FEE8028A1BA6C0042B078 /* FriendMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendMapper.swift; sourceTree = "<group>"; };
 		D09FEE8228A1BB8E0042B078 /* BaseModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModelMapper.swift; sourceTree = "<group>"; };
 		D0A8DEC828A1C3FF00E591A3 /* FriendCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCellView.swift; sourceTree = "<group>"; };
+		D0B0BEE728A4119100C3BEFD /* URLConstructors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstructors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 			children = (
 				D05E65B228A067CE00A9FB6E /* Extensions */,
 				D016FE2D289BF596001DA065 /* Consts.swift */,
+				D0B0BEE728A4119100C3BEFD /* URLConstructors.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 			files = (
 				D05E65B928A1A71300A9FB6E /* URLExtension.swift in Sources */,
 				D09FEE8328A1BB8E0042B078 /* BaseModelMapper.swift in Sources */,
+				D0B0BEE828A4119100C3BEFD /* URLConstructors.swift in Sources */,
 				D09FEE7528A1B04A0042B078 /* FriendServerModel.swift in Sources */,
 				D05E65BC28A1A80300A9FB6E /* AuthWebViewModel.swift in Sources */,
 				D05E65A228A05E1500A9FB6E /* Provider.swift in Sources */,

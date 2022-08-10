@@ -30,6 +30,7 @@ private extension FriendListView {
         ScrollView(.vertical, showsIndicators: false) {
             ForEach(viewModel.output.friendList) { model in
                 FriendCellView(model: model)
+                Divider()
             }
         }
     }

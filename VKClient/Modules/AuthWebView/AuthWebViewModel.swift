@@ -6,25 +6,40 @@
 //
 
 import Foundation
+import Combine
 
 final class AuthWebViewModel: ObservableObject {
+    let input = Input()
+    @Published var output = Output()
     
-    var url: URL? {
-        guard var urlComps = URLComponents(string: Consts.VK.vkURL) else {
-            return nil
-        }
-        
-        let items = [
-            URLQueryItem(name: Consts.VK.clientIDKey, value: Consts.VK.clientIDValue),
-            URLQueryItem(name: Consts.VK.redirectUriKey, value: Consts.VK.redirectUriValue),
-            URLQueryItem(name: Consts.VK.scopeKey, value: Consts.VK.scopeValue),
-            URLQueryItem(name: Consts.VK.displayKey, value: Consts.VK.displayValue),
-            URLQueryItem(name: Consts.VK.responseTypeKey, value: Consts.VK.responseTypeValue),
-        ]
-        urlComps.queryItems = items
-        return urlComps.url
+    let url = URLInit.current.authUrl
+    var token = LocalStorage.current.token
+    var cancellable = Set<AnyCancellable>()
+    
+    init() {
+        setupBindings()
     }
     
-    var token = LocalStorage.current.token
+    func setupBindings() {
+        bind()
+    }
     
+    func bind() {
+        input.onComplitedWebView
+            .sink { [weak self] in
+                self?.output.showFriends = true
+            }
+            .store(in: &cancellable)
+    }
+}
+
+extension AuthWebViewModel {
+    
+    struct Input {
+        let onComplitedWebView = PassthroughSubject<Void, Never>()
+    }
+    
+    struct Output {
+        var showFriends = LocalStorage.current.token != nil
+    }
 }
