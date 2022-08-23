@@ -13,6 +13,7 @@ final class FriendModelMapper: BaseModelMapper<FriendServerModel, FriendModel> {
         FriendModel(id: serverEntity.id,
                     isOnline: isOnlineCast(serverEntity.online),
                     trackCode: serverEntity.trackCode ?? "",
+                    photoMin: serverEntity.photoMin ?? "",
                     firstName: serverEntity.firstName ?? "",
                     lastName: serverEntity.lastName ?? "",
                     canAccessClosed: serverEntity.canAccessClosed ?? false,
@@ -29,10 +30,7 @@ private extension FriendModelMapper {
         switch (serverIsOnline) {
         case 0: return false
         case 1: return true
-        default:
-            // so at least we can see that it doesn't work
-            // caz all users'll be online
-            return true
+        default: return true
         }
     }
 }

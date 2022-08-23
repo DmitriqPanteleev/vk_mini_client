@@ -8,6 +8,7 @@
 import Foundation
 import Moya
 
+
 struct ServerResponse: Decodable {
     let response: ServerFriendResponse
 }
@@ -21,6 +22,7 @@ struct FriendServerModel: Decodable {
     let id: Int
     let online: Int?
     let trackCode: String?
+    let photoMin: String?
     let firstName: String?
     let lastName: String?
     let canAccessClosed: Bool?
@@ -30,6 +32,7 @@ struct FriendServerModel: Decodable {
         case id = "id"
         case online = "online"
         case trackCode = "track_code"
+        case photoMin = "photo_50"
         case firstName = "first_name"
         case lastName = "last_name"
         case canAccessClosed = "can_access_closed"

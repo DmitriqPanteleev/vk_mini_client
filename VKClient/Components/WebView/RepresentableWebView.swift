@@ -12,7 +12,6 @@ import Combine
 struct WebViewRepresentable: UIViewRepresentable {
     let url: URL
     let onError: (CustomURLError) -> Void
-    let onComplited: PassthroughSubject<Void, Never>
     
     // both methods we should override
     func makeUIView(context: Context) -> WKWebView {
@@ -30,20 +29,13 @@ struct WebViewRepresentable: UIViewRepresentable {
     
     //
     func makeCoordinator() -> Coordinator {
-        return Coordinator(onComplited: onComplited)
+        return Coordinator()
     }
     
     
     final class Coordinator: NSObject, WKNavigationDelegate {
         
-        let onComplited: PassthroughSubject<Void, Never>
-        
-        init(onComplited: PassthroughSubject<Void, Never>) {
-            self.onComplited = onComplited
-        }
-        
         func webView(_ webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
-            print(webView.url)
             guard let param = webView.url?.queryParameters else { return }
             guard let authorizeUrlString = param["authorize_url"] else { return }
             guard let authorizeURL = URL(string: authorizeUrlString) else { return }
@@ -61,7 +53,6 @@ struct WebViewRepresentable: UIViewRepresentable {
                 } else if component.contains("expires_in") {
                     let expiresInComponents = component.components(separatedBy: "=")
                     if let expiresIn = expiresInComponents.last {
-                        LocalStorage.current.expiresIn = expiresIn
                         print(expiresIn)
                     }
                 } else if component.contains("user_id") {
@@ -74,8 +65,11 @@ struct WebViewRepresentable: UIViewRepresentable {
                         }
                     }
                 }
-                onComplited.send()
             }
+            
+            // switch status of auth on true (authorized)
+            AuthLocalService.shared.status.send(true)
         }
     }
 }
+

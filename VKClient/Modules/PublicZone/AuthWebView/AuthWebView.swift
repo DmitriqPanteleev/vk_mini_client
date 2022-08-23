@@ -12,11 +12,7 @@ struct AuthWebView: View {
     @StateObject var viewModel = AuthWebViewModel()
     
     var body: some View {
-        if viewModel.output.showFriends {
-            FriendListView()
-        } else {
-            webView
-        }
+        webView
     }
 }
 
@@ -27,8 +23,7 @@ private extension AuthWebView {
             WebViewRepresentable(url: url,
                                  onError: { error in
                                     print(error.description)
-                                },
-                                 onComplited: viewModel.input.onComplitedWebView)
+            })
         }
     }
 }

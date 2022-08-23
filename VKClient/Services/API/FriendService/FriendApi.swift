@@ -16,12 +16,12 @@ enum FriendApi {
 extension FriendApi: TargetType {
     
     var baseURL: URL {
-        URL(string: Consts.GetFriends.baseURL)!
+        URL(string: Consts.base.baseURL)!
     }
     
     var path: String {
         switch self {
-        case let .getFriend(id):
+        case .getFriend(_):
             return "" // TODO: add path
         case .getFriends:
             return "/method/friends.get"
@@ -36,7 +36,7 @@ extension FriendApi: TargetType {
         var params: [String: Any] = [:]
         params["access_token"] = LocalStorage.current.token
         params["count"] = 100
-        params["fields"] = "online"
+        params["fields"] = "online, photo_50"
         params["v"] = "5.131"
         
         return .requestParameters(parameters: params, encoding: URLEncoding.default)

@@ -6,17 +6,18 @@
 //
 
 import Foundation
+import Combine
 
 // token
-// 253Dvk1.a.M1q24yGSnG8McNopxeSpainzD40Of14-Rjucto3Dqr2tB2vJ39vKwQbvxh80TXN_QSR7C6jGkm__ClTsqPV4A83gimSVappmqBMuyEyx2OcBgvTlrwyZphZ9iblIET37anDaJbpOKhNDLrcFlCQBDCpl-aVnG_68vPJWCBI26NR8iPMyMkMXyq8AkI-G06ud
+// vk1.a.LTQJHwRPhJO8qlyftZGaiP9b2Wg9PP_IW7AjafZSWjtZ8m66MwYo2vBF1fRwADUO9TTAlff_rUSiyQZmWM8q8ciyTzJi45lysbuYlZgLg6n1e3ijRlkGXk1tblk3ce9wiVoicZuENRIQSt52Nje6KuwilPesRj81pMhXn_ZFsogPELKGMla4NXDd312dQj33
 
 // owner_id
 // 400114525
 
 enum LocalStorageKey: String {
     case token
-    case expiresIn
     case vkID
+    case isAuthorized
 }
 
 
@@ -40,21 +41,21 @@ struct LocalStorage {
         }
     }
     
-    var expiresIn: String? {
-        get {
-            userDefaults.string(forKey: LocalStorageKey.expiresIn.rawValue)
-        }
-        set {
-            userDefaults.set(newValue, forKey: LocalStorageKey.expiresIn.rawValue)
-        }
-    }
-    
     var vkID: Int? {
         get {
             userDefaults.integer(forKey: LocalStorageKey.vkID.rawValue)
         }
         set {
             userDefaults.set(newValue, forKey: LocalStorageKey.vkID.rawValue)
+        }
+    }
+    
+    var isAuthorized: Bool {
+        get {
+            userDefaults.bool(forKey: LocalStorageKey.isAuthorized.rawValue)
+        }
+        set {
+            userDefaults.setValue(newValue, forKey: LocalStorageKey.isAuthorized.rawValue)
         }
     }
 }

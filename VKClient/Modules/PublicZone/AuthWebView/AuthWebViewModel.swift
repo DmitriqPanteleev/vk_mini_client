@@ -25,21 +25,17 @@ final class AuthWebViewModel: ObservableObject {
     }
     
     func bind() {
-        input.onComplitedWebView
-            .sink { [weak self] in
-                self?.output.showFriends = true
-            }
-            .store(in: &cancellable)
+        
     }
 }
 
 extension AuthWebViewModel {
     
     struct Input {
-        let onComplitedWebView = PassthroughSubject<Void, Never>()
+        
     }
     
     struct Output {
-        var showFriends = LocalStorage.current.token != nil
+        
     }
 }

@@ -17,7 +17,7 @@ struct Consts {
         static let displayKey = "display"
         static let displayValue = "mobile"
         static let scopeKey = "scope"
-        static let scopeValue = "12"
+        static let scopeValue = "offline,friends,groups,wall,photos"
         static let responseTypeKey = "response_type"
         static let responseTypeValue = "token"
         static let redirectUriKey = "redirect_uri"
@@ -25,7 +25,7 @@ struct Consts {
     }
     
     // To get friends from VK API
-    struct GetFriends {
+    struct base {
         static let baseURL = "https://api.vk.com"
     }
 }

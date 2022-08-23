@@ -11,6 +11,7 @@ struct FriendModel: Identifiable {
     let id: Int
     let isOnline: Bool
     let trackCode: String
+    let photoMin: String
     let firstName: String
     let lastName: String
     let canAccessClosed: Bool
