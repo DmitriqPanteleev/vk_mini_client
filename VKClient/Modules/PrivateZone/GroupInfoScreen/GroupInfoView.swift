@@ -49,24 +49,28 @@ private extension GroupInfoView {
                     .foregroundColor(.gray)
             }
             Spacer()
-            NetworkImage(imageURL: URL(string: model.photoAvg))
+            NetworkImage(imageURL: URL(string: model.photoAvg), frameWidth: 80, frameHeight: 80, radius: 80)
         }
     }
     
     @ViewBuilder func description() -> some View {
-        VStack(alignment: .leading) {
-            Text("Описание:")
-                .font(.title3)
-                .padding(.all, 0)
-            HStack {
-                Text(model.desc)
+        if (model.desc == "") {
+            Text("Описание отсутствует")
+        } else {
+            VStack(alignment: .leading) {
+                Text("Описание:")
+                    .font(.title3)
                     .padding(.all, 0)
-                Spacer()
+                HStack {
+                    Text(model.desc)
+                        .padding(.all, 0)
+                    Spacer()
+                }
+                .padding(.vertical, 10)
             }
-            .padding(.vertical, 10)
+            .padding(.horizontal, 0)
+            .padding(.vertical, 20)
         }
-        .padding(.horizontal, 0)
-        .padding(.vertical, 20)
     }
     
     @ViewBuilder func isVerified(_ verified: Bool) -> some View {

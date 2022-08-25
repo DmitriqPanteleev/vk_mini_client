@@ -9,15 +9,15 @@ import SwiftUI
 
 struct FriendListView: View {
     
-    @StateObject private var viewModel = FriendListViewModel()
+    @StateObject var viewModel: FriendListViewModel
     
     var body: some View {
         VStack {
-            Text("My Friends")
-                .onAppear(perform: onApperSend)
             tableView()
-            // TODO: GestureMask to write
         }
+        .onAppear(perform: onApperSend)
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle("Мои друзья")
     }
     
     func onApperSend() {
@@ -31,14 +31,24 @@ private extension FriendListView {
         ScrollView(.vertical, showsIndicators: false) {
             ForEach(viewModel.output.friendList) { model in
                 FriendCellView(model: model)
+                    .onTapGesture {
+                        onFriendTapSend(model.id)
+                    }
                 Divider()
             }
         }
     }
 }
 
-struct FriendListView_Previews: PreviewProvider {
-    static var previews: some View {
-        FriendListView()
+private extension FriendListView {
+    func onFriendTapSend(_ id: Int) {
+        print("model sended")
+        viewModel.input.onFriendTap.send(id)
     }
 }
+
+//struct FriendListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FriendListView()
+//    }
+//}

@@ -17,7 +17,7 @@ struct GroupListView: View {
         }
         .onAppear(perform: onApperSend)
         .navigationBarTitleDisplayMode(.inline)
-        .navigationTitle("GroupsList")
+        .navigationTitle("Мои группы")
     }
 }
 
@@ -31,11 +31,10 @@ private extension GroupListView {
     }
     
     @ViewBuilder func groupButton(model: GroupModel) -> some View {
-        Button(action: {
-            modelSend(model)
-        }) {
-            GroupCellView(model: model)
-        }
+        GroupCellView(model: model)
+            .onTapGesture {
+                modelSend(model)
+            }
     }
 }
 

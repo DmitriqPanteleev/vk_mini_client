@@ -44,12 +44,13 @@ extension GroupApi: TargetType {
             params["v"] = "5.131"
             
             return .requestParameters(parameters: params, encoding: URLEncoding.default)
+            
         case .getGroups:
             var params: [String: Any] = [:]
             params["access_token"] = LocalStorage.current.token
             params["extended"] = 1
             params["fields"] = "activity, description, members_count"
-            params["count"] = 10
+            params["count"] = 56
             params["v"] = "5.131"
             
             return .requestParameters(parameters: params, encoding: URLEncoding.default)

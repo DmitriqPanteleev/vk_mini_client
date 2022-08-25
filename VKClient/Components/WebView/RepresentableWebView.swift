@@ -66,7 +66,6 @@ struct WebViewRepresentable: UIViewRepresentable {
                     }
                 }
             }
-            
             // switch status of auth on true (authorized)
             AuthLocalService.shared.status.send(true)
         }

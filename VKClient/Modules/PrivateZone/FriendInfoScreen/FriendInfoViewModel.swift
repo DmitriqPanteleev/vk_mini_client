@@ -1,46 +1,42 @@
 //
-//  FriendListViewModel.swift
+//  FriendInfoViewModel.swift
 //  VKClient
 //
-//  Created by Дмитрий Пантелеев on 08.08.2022.
+//  Created by Дмитрий Пантелеев on 24.08.2022.
 //
 
 import Foundation
 import Combine
 import CombineExt
 
-final class FriendListViewModel: ObservableObject {
+final class FriendInfoViewModel: ObservableObject {
     
-    // MARK: - DEPERNDECIES
-    let apiService = FriendApiService()
+    // MARK: - DEPENDECIES
+    let api = UserApiService()
     
-    // MARK: - LOCAL DATA
     let input: Input
     @Published var output: Output
     
-    let router: FriendsRouter?
+    private let friendId: Int
     private var cancellable = Set<AnyCancellable>()
     
     // MARK: - INIT
-    init(router: FriendsRouter?) {
-        self.router = router
+    init(friendId: Int) {
+        self.friendId = friendId
         self.input = Input()
         self.output = Output()
-        
         
         setupBindings()
     }
     
     func setupBindings() {
         bindRequest()
-        bindFriendTap()
     }
     
     func bindRequest() {
-        
         let request = input.onAppear
             .map{ [unowned self] in
-                self.apiService.getFriends()
+                self.api.getUser(id: self.friendId)
                     // CombineExt's method to wrap event
                     // so event can be alive even after errors for example
                     .materialize()
@@ -52,7 +48,7 @@ final class FriendListViewModel: ObservableObject {
         request
             .values()
             .sink { [weak self] in
-                self?.output.friendList = $0
+                self?.output.friend = $0
             }
             .store(in: &cancellable)
         
@@ -66,24 +62,15 @@ final class FriendListViewModel: ObservableObject {
             }
             .store(in: &cancellable)
     }
-    
-    func bindFriendTap() {
-        input.onFriendTap
-            .sink { [weak self] in
-                self?.router?.goToInfo(id: $0)
-            }
-            .store(in: &cancellable)
-    }
 }
 
-
-extension FriendListViewModel {
+extension FriendInfoViewModel {
     struct Input {
         let onAppear = PassthroughSubject<Void, Never>()
-        let onFriendTap = PassthroughSubject<Int, Never>()
     }
-    
+
     struct Output {
-        var friendList: [FriendModel] = []
+        var friend: UserModel?
     }
+//    UserModel(id: 0, domain: "", city: "", photoMaxOrig: "", status: "", lastSeen: "", followersCount: 10, commonCount: 10, counters: [:], online: false, firstName: "Oleg", lastName: "", canAccessClosed: false, isClosed: false)
 }

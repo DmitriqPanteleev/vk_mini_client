@@ -1,27 +1,25 @@
 //
-//  FriendList.swift
+//  UserApi.swift
 //  VKClient
 //
-//  Created by Дмитрий Пантелеев on 09.08.2022.
+//  Created by Дмитрий Пантелеев on 24.08.2022.
 //
 
 import Foundation
 import Moya
 
-enum FriendApi {
-    case getFriends
+enum UserApi {
+    case getUser(id: Int)
 }
 
-extension FriendApi: TargetType {
-    
+extension UserApi: TargetType {
     var baseURL: URL {
         URL(string: Consts.base.baseURL)!
     }
     
     var path: String {
         switch self {
-        case .getFriends:
-            return "/method/friends.get"
+        case .getUser(_): return "/method/users.get"
         }
     }
     
@@ -31,11 +29,11 @@ extension FriendApi: TargetType {
     
     var task: Task {
         switch self {
-        case .getFriends:
+        case .getUser(let id):
             var params: [String: Any] = [:]
             params["access_token"] = LocalStorage.current.token
-            params["count"] = 100
-            params["fields"] = "online, photo_50"
+            params["user_ids"] = "\(id)"
+            params["fields"] = "bdate, city, common_count, counters, domain, followers_count, last_seen, online, photo_max_orig, status"
             params["v"] = "5.131"
             
             return .requestParameters(parameters: params, encoding: URLEncoding.default)
@@ -45,4 +43,6 @@ extension FriendApi: TargetType {
     var headers: [String : String]? {
         [:]
     }
+    
+    
 }

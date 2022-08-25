@@ -36,8 +36,8 @@ private extension TabBarCoordinator {
     
     func customize() {}
     
-    @ViewBuilder func makeFriends() -> some View {
-        FriendListView()
+    func makeFriends() -> NavigationViewCoordinator<FriendsCoordinator> {
+        NavigationViewCoordinator(FriendsCoordinator())
     }
     
     @ViewBuilder func makeFriendsTab(isActive: Bool) -> some View {
@@ -46,11 +46,6 @@ private extension TabBarCoordinator {
             Text("Друзья")
         }
     }
-    
-    
-//    @ViewBuilder func makeGroups() -> some View {
-//        GroupListView()
-//    }
     
     func makeGroups() -> NavigationViewCoordinator<GroupsCoordinator> {
         NavigationViewCoordinator(GroupsCoordinator())
