@@ -1,28 +1,27 @@
 //
-//  FriendInfoViewModel.swift
+//  AlbumPhotosViewModel.swift
 //  VKClient
 //
-//  Created by Дмитрий Пантелеев on 24.08.2022.
+//  Created by Дмитрий Пантелеев on 21.08.2022.
 //
 
 import Foundation
 import Combine
-import CombineExt
 
-final class FriendInfoViewModel: ObservableObject {
+final class PhotosViewModel {
+    // MARK: - DEPERNDECIES
+    let apiService = PhotoApiService()
     
-    // MARK: - DEPENDECIES
-    let api = UserApiService()
-    
+    // MARK: - LOCAL DATA
     let input: Input
     @Published var output: Output
     
-    private let friendId: Int
+    let router: AlbumRouter?
     private var cancellable = Set<AnyCancellable>()
     
     // MARK: - INIT
-    init(friendId: Int) {
-        self.friendId = friendId
+    init(router: AlbumRouter?) {
+        self.router = router
         self.input = Input()
         self.output = Output()
         
@@ -36,19 +35,20 @@ final class FriendInfoViewModel: ObservableObject {
     func bindRequest() {
         let request = input.onAppear
             .map{ [unowned self] in
-                self.api.getUser(id: self.friendId)
+                self.apiService.getPhotos(ownerId: String(LocalStorage.current.vkID!),
+                                          albumId: $0)
                     // CombineExt's method to wrap event
                     // so event can be alive even after errors for example
                     .materialize()
             }
             .switchToLatest()
-            // method for many subscribers
-            .share()
-        
+        // method for many subscribers
+        .share()
+    
         request
             .values()
             .sink { [weak self] in
-                self?.output.friend = $0
+                self?.output.photos = $0
             }
             .store(in: &cancellable)
         
@@ -64,13 +64,13 @@ final class FriendInfoViewModel: ObservableObject {
     }
 }
 
-extension FriendInfoViewModel {
+extension PhotosViewModel {
+    
     struct Input {
-        let onAppear = PassthroughSubject<Void, Never>()
+        let onAppear = PassthroughSubject<String, Never>()
     }
-
+    
     struct Output {
-        var friend: UserModel?
+        var photos: [PhotoModel] = []
     }
-//    UserModel(id: 0, domain: "", city: "", photoMaxOrig: "", status: "", lastSeen: "", followersCount: 10, commonCount: 10, counters: [:], online: false, firstName: "Oleg", lastName: "", canAccessClosed: false, isClosed: false)
 }

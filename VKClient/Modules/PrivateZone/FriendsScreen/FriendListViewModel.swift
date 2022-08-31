@@ -40,7 +40,7 @@ final class FriendListViewModel: ObservableObject {
         
         let request = input.onAppear
             .map{ [unowned self] in
-                self.apiService.getFriends()
+                self.apiService.getFriends(id: nil)
                     // CombineExt's method to wrap event
                     // so event can be alive even after errors for example
                     .materialize()

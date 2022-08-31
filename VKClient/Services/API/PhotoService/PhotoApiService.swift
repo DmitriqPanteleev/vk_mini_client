@@ -16,8 +16,20 @@ struct PhotoApiService {
 
 extension PhotoApiService {
     
-    func getAlbums() -> AnyPublisher<[AlbumModel], APIError> {
-        provider.requestPublisher(.getAlbums)
+    func getPhotos(ownerId: String?, albumId: String?) -> AnyPublisher<[PhotoModel], APIError> {
+        provider.requestPublisher(.get(ownerId: ownerId, albumId: albumId))
+            .filterSuccessfulStatusCodes()
+            .map(PhotoResponse.self)
+            .map { $0.response.items }
+            .map { PhotoModelMapper().toLocal(list: $0) }
+            .mapError({ _ in
+                .bad
+            })
+            .eraseToAnyPublisher()
+    }
+    
+    func getAlbums(ownerId: String?) -> AnyPublisher<[AlbumModel], APIError> {
+        provider.requestPublisher(.getAlbums(ownerId: ownerId))
             .filterSuccessfulStatusCodes()
             .map(ServerResponse3.self)
             .map { $0.response.items }
@@ -28,4 +40,10 @@ extension PhotoApiService {
             .eraseToAnyPublisher()
     }
     
+}
+
+extension PhotoApiService: AlbumListAPIProtocol{}
+
+protocol AlbumListAPIProtocol {
+    func getAlbums(ownerId: String?) -> AnyPublisher<[AlbumModel], APIError>
 }

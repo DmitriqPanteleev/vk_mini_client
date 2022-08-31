@@ -10,14 +10,19 @@ import Combine
 
 final class AlbumListViewModel: ObservableObject {
     
-    let api = PhotoApiService()
+    private let api: AlbumListAPIProtocol
+    private let router: AlbumRouter?
     
     let input: Input
     @Published var output: Output
     
+    
     private var cancellable = Set<AnyCancellable>()
     
-    init() {
+    init(router: AlbumRouter?,
+         api: AlbumListAPIProtocol) {
+        self.router = router
+        self.api = api
         self.input = Input()
         self.output = Output()
         bind()
@@ -31,7 +36,7 @@ final class AlbumListViewModel: ObservableObject {
     func bundRequest() {
         let request = input.onAppear
             .map{ [unowned self] in
-                self.api.getAlbums()
+                self.api.getAlbums(ownerId: nil)
                     // CombineExt's method to wrap event
                     // so event can be alive even after errors for example
                     .materialize()
@@ -59,7 +64,11 @@ final class AlbumListViewModel: ObservableObject {
     }
     
     func bindCellTap() {
-        // TODO: bind
+        input.onCellTap
+            .sink {
+                self.router?.goToPhotos(albumId: "\($0)")
+            }
+            .store(in: &cancellable)
     }
     
     struct Input {

@@ -14,10 +14,22 @@ final class TypesCast {
             return true
         }
         
+        // TODO: if else
         switch (serverIsOnline) {
         case 0: return false
         case 1: return true
         default: return true
         }
+    }
+    
+    static func unixDateToTimeString(_ serverDate: Int) -> String {
+        let date = Date(timeIntervalSince1970: Double(serverDate))
+        let calendar = Calendar.current
+        
+        let hour = calendar.component(.hour, from: date)
+        let min = calendar.component(.minute, from: date)
+        
+        let result = "\(hour):\(min)"
+        return result
     }
 }

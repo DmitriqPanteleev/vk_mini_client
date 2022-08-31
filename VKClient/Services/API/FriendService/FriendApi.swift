@@ -9,7 +9,7 @@ import Foundation
 import Moya
 
 enum FriendApi {
-    case getFriends
+    case getFriends(ownerId: Int?)
 }
 
 extension FriendApi: TargetType {
@@ -31,9 +31,13 @@ extension FriendApi: TargetType {
     
     var task: Task {
         switch self {
-        case .getFriends:
+        case .getFriends(let id):
             var params: [String: Any] = [:]
             params["access_token"] = LocalStorage.current.token
+            if (id != nil) {
+                params["user_id"] = id
+            }
+            params["order"] = "hints"
             params["count"] = 100
             params["fields"] = "online, photo_50"
             params["v"] = "5.131"

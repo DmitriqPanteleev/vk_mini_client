@@ -9,8 +9,10 @@ import Foundation
 
 struct UserModel: Identifiable {
     let id: Int
+    let bdate: String
     let domain: String
     let city: String
+    let isFriend: Bool
     let photoMaxOrig: String
     let status: String
     let lastSeen: String
@@ -23,6 +25,6 @@ struct UserModel: Identifiable {
     let canAccessClosed, isClosed: Bool
     
     var fullName: String {
-        "\(lastName) \(firstName)"
+        "\(firstName) \(lastName)"
     }
 }

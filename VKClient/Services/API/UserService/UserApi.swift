@@ -33,7 +33,7 @@ extension UserApi: TargetType {
             var params: [String: Any] = [:]
             params["access_token"] = LocalStorage.current.token
             params["user_ids"] = "\(id)"
-            params["fields"] = "bdate, city, common_count, counters, domain, followers_count, last_seen, online, photo_max_orig, status"
+            params["fields"] = "bdate, city, common_count, counters, domain, followers_count, last_seen, online, photo_max_orig, status, isFriend"
             params["v"] = "5.131"
             
             return .requestParameters(parameters: params, encoding: URLEncoding.default)

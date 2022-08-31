@@ -42,9 +42,9 @@ struct NetworkImage: SwiftUI.View {
     
     var body: some SwiftUI.View {
         Image(uiImage: image ?? UIImage(systemName: "eye.slash")!) // TODO: Unwrap nil
+            .renderingMode(.original)
             .resizable()
             .frame(width: self.frameWidth ?? 50, height: self.frameHeight ?? 50)
-            .scaledToFit()
             .cornerRadius(self.radius ?? 50)
 //            .if(!isAnimation, transform: { TODO: ????
 //                $0.animation(nil)

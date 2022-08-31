@@ -14,6 +14,7 @@ final class FriendsCoordinator: NavigationCoordinatable {
     
     @Root var start = makeStart
     @Route(.push) var friendInfo = makeFriendInfo
+    @Route(.modal) var detailsInfo = makeDetailedUserInfo
     
 #if DEBUG
     deinit {
@@ -29,7 +30,11 @@ extension FriendsCoordinator {
     }
     
     @ViewBuilder func makeFriendInfo(id: Int) -> some View {
-        let viewModel = FriendInfoViewModel(friendId: id)
-        FriendInfoView(viewModel: viewModel)
+        let viewModel = UserInfoViewModel(userId: id, router: self)
+        UserInfoView(viewModel: viewModel)
+    }
+    
+    @ViewBuilder func makeDetailedUserInfo(model: UserModel) -> some View {
+        DetailInfoView(model: model)
     }
 }

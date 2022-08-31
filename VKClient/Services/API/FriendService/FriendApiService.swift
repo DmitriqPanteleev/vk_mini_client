@@ -16,8 +16,8 @@ struct FriendApiService {
 
 extension FriendApiService {
     
-    func getFriends() -> AnyPublisher<[FriendModel], APIError> {
-        provider.requestPublisher(.getFriends)
+    func getFriends(id: Int?) -> AnyPublisher<[FriendModel], APIError> {
+        provider.requestPublisher(.getFriends(ownerId: id))
             .filterSuccessfulStatusCodes()
             .map(ServerResponse.self)
             .map { $0.response.items }

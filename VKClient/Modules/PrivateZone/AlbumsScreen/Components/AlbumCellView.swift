@@ -13,24 +13,24 @@ struct AlbumCellView: View {
     
     var body: some View {
         VStack {
-            mainImg()
+            mainImg
             title()
         }
-        .padding(.horizontal, 16)
-        .padding(.vertical, 10)
     }
 }
 
-extension AlbumCellView {
-    @ViewBuilder func mainImg() -> some View {
+private extension AlbumCellView {
+    
+    var mainImg: some View {
         NetworkImage(imageURL: URL(string: model.thumbSource!), frameWidth: 150, frameHeight: 150, radius: 20)
     }
     
-    @ViewBuilder func title() -> some View {
+    func title() -> some View {
         HStack {
-            VStack {
+            HStack {
                 Text(model.title)
                     .font(.caption)
+                    .colorMultiply(.black)
                     .lineLimit(1)
                 Text("\(model.size)")
                     .font(.caption2)

@@ -10,11 +10,13 @@ import Foundation
 final class UserMapper: BaseModelMapper<UserServerModel, UserModel> {
     override func toLocal(serverEntity: UserServerModel) -> UserModel {
         UserModel(id: serverEntity.id,
+                  bdate: serverEntity.bdate.orEmpty,
                   domain: serverEntity.domain.orEmpty,
                   city: serverEntity.city?.title ?? "",
+                  isFriend: TypesCast.intToBool(serverEntity.isFriend ?? -1),
                   photoMaxOrig: serverEntity.photoMaxOrig!,
                   status: serverEntity.status.orEmpty,
-                  lastSeen: String(serverEntity.lastSeen!.platform),
+                  lastSeen: TypesCast.unixDateToTimeString(serverEntity.lastSeen!.time),
                   followersCount: serverEntity.followersCount ?? -1,
                   commonCount: serverEntity.commonCount ?? -1,
                   counters: serverEntity.counters ?? [:],

@@ -24,6 +24,7 @@ extension GroupApiService {
             .mapError({ _ in
                     .bad
             })
+            .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
 }

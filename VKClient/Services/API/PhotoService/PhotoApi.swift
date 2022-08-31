@@ -9,9 +9,8 @@ import Foundation
 import Moya
 
 enum PhotoApi {
-    case get
-    case getAlbum(id: Int)
-    case getAlbums
+    case get(ownerId: String?, albumId: String?)
+    case getAlbums(ownerId: String?)
 }
 
 extension PhotoApi: TargetType {
@@ -22,7 +21,6 @@ extension PhotoApi: TargetType {
     var path: String {
         switch self {
         case .get: return "/method/photos.get"
-        case .getAlbum(_): return ""
         case .getAlbums: return "/method/photos.getAlbums"
         }
     }
@@ -33,32 +31,31 @@ extension PhotoApi: TargetType {
     
     var task: Task {
         switch self {
-        case .get:
+        case .get(let ownerId, let albumId):
             var params: [String: Any] = [:]
             params["access_token"] = LocalStorage.current.token
-            params["album_id"] = "wall"
+            if (ownerId != nil) {
+                params["owner_id"] = ownerId
+            }
+            if (albumId != nil) {
+                params["album_id"] = albumId
+            } else {
+                params["album_id"] = "wall"
+            }
             params["extended"] = 1
-            params["offset"] = 10
             params["v"] = "5.131"
             
             return .requestParameters(parameters: params, encoding: URLEncoding.default)
             
-        case .getAlbum(_):
+        case .getAlbums(let ownerId):
             var params: [String: Any] = [:]
             params["access_token"] = LocalStorage.current.token
-            params["need_covers"] = "wall"
-            //params["offset"] = 10
-            params["v"] = "5.131"
-            
-            return .requestParameters(parameters: params, encoding: URLEncoding.default)
-            
-        case .getAlbums:
-            var params: [String: Any] = [:]
-            params["access_token"] = LocalStorage.current.token
+            if (ownerId != nil) {
+                params["owner_id"] = ownerId
+            }
             params["owner_id"] = LocalStorage.current.vkID
             params["need_system"] = "1"
             params["need_covers"] = "1"
-            //params["offset"] = 10
             params["v"] = "5.131"
             
             return .requestParameters(parameters: params, encoding: URLEncoding.default)

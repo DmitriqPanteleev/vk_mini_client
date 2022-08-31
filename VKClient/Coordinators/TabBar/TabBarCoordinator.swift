@@ -58,8 +58,8 @@ private extension TabBarCoordinator {
         }
     }
 
-    @ViewBuilder func makeAlbums() -> some View {
-        AlbumListView()
+    func makeAlbums() -> NavigationViewCoordinator<AlbumsCoordinator> {
+        NavigationViewCoordinator(AlbumsCoordinator())
     }
     
     @ViewBuilder func makeAlbumsTab(isActive: Bool) -> some View {

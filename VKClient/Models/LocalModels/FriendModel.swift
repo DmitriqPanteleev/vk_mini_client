@@ -18,6 +18,6 @@ struct FriendModel: Identifiable {
     let isClosed: Bool
     
     var fullName: String {
-        "\(lastName) \(firstName)"
+        "\(firstName) \(lastName)"
     }
 }

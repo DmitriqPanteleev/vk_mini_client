@@ -18,6 +18,7 @@ struct UserServerModel: Decodable {
     let id: Int
     let domain, bdate: String?
     let city: City?
+    let isFriend: Int?
     let photoMaxOrig: String?
     let status: String?
     let lastSeen: LastSeen?
@@ -31,6 +32,7 @@ struct UserServerModel: Decodable {
         case id, domain, bdate, city
         case photoMaxOrig = "photo_max_orig"
         case status
+        case isFriend = "is_friend"
         case lastSeen = "last_seen"
         case followersCount = "followers_count"
         case commonCount = "common_count"
