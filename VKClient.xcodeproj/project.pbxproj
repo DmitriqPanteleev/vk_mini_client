@@ -33,8 +33,6 @@
 		D04D975E28AA5E79000F18BD /* GroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D975D28AA5E79000F18BD /* GroupModel.swift */; };
 		D04D976028AA5E87000F18BD /* GroupServerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D975F28AA5E87000F18BD /* GroupServerModel.swift */; };
 		D04D976428AA74F3000F18BD /* Extensions+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D976328AA74F3000F18BD /* Extensions+String.swift */; };
-		D04D976728AA7634000F18BD /* GroupApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D976628AA7634000F18BD /* GroupApi.swift */; };
-		D04D976928AA7640000F18BD /* GroupApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D976828AA7640000F18BD /* GroupApiService.swift */; };
 		D04D976B28ABB3E4000F18BD /* GroupInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D976A28ABB3E4000F18BD /* GroupInfoView.swift */; };
 		D04D976F28AE4089000F18BD /* Stinsen in Frameworks */ = {isa = PBXBuildFile; productRef = D04D976E28AE4089000F18BD /* Stinsen */; };
 		D04D977628AF94F3000F18BD /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D977528AF94F3000F18BD /* MainCoordinator.swift */; };
@@ -46,8 +44,6 @@
 		D04D978B28AFD478000F18BD /* AlbumServerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D978A28AFD478000F18BD /* AlbumServerModel.swift */; };
 		D04D978D28AFDA95000F18BD /* AlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D978C28AFDA95000F18BD /* AlbumModel.swift */; };
 		D04D978F28AFDB2E000F18BD /* AlbumMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D978E28AFDB2E000F18BD /* AlbumMapper.swift */; };
-		D04D979128AFEC40000F18BD /* PhotoApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D979028AFEC40000F18BD /* PhotoApiService.swift */; };
-		D04D979328AFEC4D000F18BD /* PhotoApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D979228AFEC4D000F18BD /* PhotoApi.swift */; };
 		D04D979628B02A92000F18BD /* AlbumCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D979528B02A92000F18BD /* AlbumCellView.swift */; };
 		D04D979B28B237D1000F18BD /* FriendsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D979A28B237D1000F18BD /* FriendsCoordinator.swift */; };
 		D04D979D28B237DC000F18BD /* GroupsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D979C28B237DC000F18BD /* GroupsCoordinator.swift */; };
@@ -63,8 +59,8 @@
 		D0510FB728B65AD700A73A72 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0510FB628B65AD700A73A72 /* UserModel.swift */; };
 		D0510FB928B65AE500A73A72 /* UserServerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0510FB828B65AE500A73A72 /* UserServerModel.swift */; };
 		D0510FBB28B65AF200A73A72 /* UserMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0510FBA28B65AF200A73A72 /* UserMapper.swift */; };
-		D0510FBE28B69B3400A73A72 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0510FBD28B69B3400A73A72 /* UserApi.swift */; };
-		D0510FC028B69B3F00A73A72 /* UserApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0510FBF28B69B3F00A73A72 /* UserApiService.swift */; };
+		D0510FBE28B69B3400A73A72 /* VKApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0510FBD28B69B3400A73A72 /* VKApi.swift */; };
+		D0510FC028B69B3F00A73A72 /* VKApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0510FBF28B69B3F00A73A72 /* VKApiService.swift */; };
 		D0510FC228B6A2DE00A73A72 /* TypesCast.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0510FC128B6A2DE00A73A72 /* TypesCast.swift */; };
 		D05E65A228A05E1500A9FB6E /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05E65A128A05E1500A9FB6E /* Provider.swift */; };
 		D05E65A528A05EA600A9FB6E /* RepresentableWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05E65A428A05EA600A9FB6E /* RepresentableWebView.swift */; };
@@ -78,8 +74,6 @@
 		D05E65BE28A1A80E00A9FB6E /* AuthWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05E65BD28A1A80E00A9FB6E /* AuthWebView.swift */; };
 		D09FEE7528A1B04A0042B078 /* FriendServerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FEE7428A1B04A0042B078 /* FriendServerModel.swift */; };
 		D09FEE7828A1B0600042B078 /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FEE7728A1B0600042B078 /* FriendModel.swift */; };
-		D09FEE7A28A1B3150042B078 /* FriendApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FEE7928A1B3150042B078 /* FriendApi.swift */; };
-		D09FEE7C28A1B3300042B078 /* FriendApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FEE7B28A1B3300042B078 /* FriendApiService.swift */; };
 		D09FEE7E28A1B79C0042B078 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FEE7D28A1B79C0042B078 /* APIError.swift */; };
 		D09FEE8128A1BA6C0042B078 /* FriendMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FEE8028A1BA6C0042B078 /* FriendMapper.swift */; };
 		D09FEE8328A1BB8E0042B078 /* BaseModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FEE8228A1BB8E0042B078 /* BaseModelMapper.swift */; };
@@ -111,8 +105,6 @@
 		D04D975D28AA5E79000F18BD /* GroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupModel.swift; sourceTree = "<group>"; };
 		D04D975F28AA5E87000F18BD /* GroupServerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupServerModel.swift; sourceTree = "<group>"; };
 		D04D976328AA74F3000F18BD /* Extensions+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+String.swift"; sourceTree = "<group>"; };
-		D04D976628AA7634000F18BD /* GroupApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupApi.swift; sourceTree = "<group>"; };
-		D04D976828AA7640000F18BD /* GroupApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupApiService.swift; sourceTree = "<group>"; };
 		D04D976A28ABB3E4000F18BD /* GroupInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupInfoView.swift; sourceTree = "<group>"; };
 		D04D977528AF94F3000F18BD /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		D04D977A28AF98F7000F18BD /* AuthLocalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthLocalService.swift; sourceTree = "<group>"; };
@@ -123,8 +115,6 @@
 		D04D978A28AFD478000F18BD /* AlbumServerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumServerModel.swift; sourceTree = "<group>"; };
 		D04D978C28AFDA95000F18BD /* AlbumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumModel.swift; sourceTree = "<group>"; };
 		D04D978E28AFDB2E000F18BD /* AlbumMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumMapper.swift; sourceTree = "<group>"; };
-		D04D979028AFEC40000F18BD /* PhotoApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoApiService.swift; sourceTree = "<group>"; };
-		D04D979228AFEC4D000F18BD /* PhotoApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoApi.swift; sourceTree = "<group>"; };
 		D04D979528B02A92000F18BD /* AlbumCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCellView.swift; sourceTree = "<group>"; };
 		D04D979A28B237D1000F18BD /* FriendsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCoordinator.swift; sourceTree = "<group>"; };
 		D04D979C28B237DC000F18BD /* GroupsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsCoordinator.swift; sourceTree = "<group>"; };
@@ -140,8 +130,8 @@
 		D0510FB628B65AD700A73A72 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		D0510FB828B65AE500A73A72 /* UserServerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServerModel.swift; sourceTree = "<group>"; };
 		D0510FBA28B65AF200A73A72 /* UserMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMapper.swift; sourceTree = "<group>"; };
-		D0510FBD28B69B3400A73A72 /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
-		D0510FBF28B69B3F00A73A72 /* UserApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApiService.swift; sourceTree = "<group>"; };
+		D0510FBD28B69B3400A73A72 /* VKApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKApi.swift; sourceTree = "<group>"; };
+		D0510FBF28B69B3F00A73A72 /* VKApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKApiService.swift; sourceTree = "<group>"; };
 		D0510FC128B6A2DE00A73A72 /* TypesCast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypesCast.swift; sourceTree = "<group>"; };
 		D05E65A128A05E1500A9FB6E /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		D05E65A428A05EA600A9FB6E /* RepresentableWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepresentableWebView.swift; sourceTree = "<group>"; };
@@ -155,8 +145,6 @@
 		D05E65BD28A1A80E00A9FB6E /* AuthWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthWebView.swift; sourceTree = "<group>"; };
 		D09FEE7428A1B04A0042B078 /* FriendServerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendServerModel.swift; sourceTree = "<group>"; };
 		D09FEE7728A1B0600042B078 /* FriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
-		D09FEE7928A1B3150042B078 /* FriendApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendApi.swift; sourceTree = "<group>"; };
-		D09FEE7B28A1B3300042B078 /* FriendApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendApiService.swift; sourceTree = "<group>"; };
 		D09FEE7D28A1B79C0042B078 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		D09FEE8028A1BA6C0042B078 /* FriendMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendMapper.swift; sourceTree = "<group>"; };
 		D09FEE8228A1BB8E0042B078 /* BaseModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModelMapper.swift; sourceTree = "<group>"; };
@@ -374,15 +362,6 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		D04D976528AA75EC000F18BD /* GroupService */ = {
-			isa = PBXGroup;
-			children = (
-				D04D976628AA7634000F18BD /* GroupApi.swift */,
-				D04D976828AA7640000F18BD /* GroupApiService.swift */,
-			);
-			path = GroupService;
-			sourceTree = "<group>";
-		};
 		D04D977028AEEE77000F18BD /* PublicZone */ = {
 			isa = PBXGroup;
 			children = (
@@ -408,8 +387,8 @@
 			isa = PBXGroup;
 			children = (
 				D04D97A128B237F2000F18BD /* Albums */,
-				D04D97A228B237F9000F18BD /* Groups */,
 				D04D97A028B237EC000F18BD /* Friends */,
+				D04D97A228B237F9000F18BD /* Groups */,
 				D04D977428AF94D3000F18BD /* Auth */,
 				D04D977328AF94B8000F18BD /* TabBar */,
 				D04D977528AF94F3000F18BD /* MainCoordinator.swift */,
@@ -458,15 +437,6 @@
 				D04D979528B02A92000F18BD /* AlbumCellView.swift */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		D04D979428AFEC51000F18BD /* PhotoService */ = {
-			isa = PBXGroup;
-			children = (
-				D04D979228AFEC4D000F18BD /* PhotoApi.swift */,
-				D04D979028AFEC40000F18BD /* PhotoApiService.swift */,
-			);
-			path = PhotoService;
 			sourceTree = "<group>";
 		};
 		D04D97A028B237EC000F18BD /* Friends */ = {
@@ -520,35 +490,23 @@
 			path = UserInfoScreen;
 			sourceTree = "<group>";
 		};
-		D0510FBC28B69B1300A73A72 /* UserService */ = {
+		D0510FBC28B69B1300A73A72 /* VKApiService */ = {
 			isa = PBXGroup;
 			children = (
-				D0510FBD28B69B3400A73A72 /* UserApi.swift */,
-				D0510FBF28B69B3F00A73A72 /* UserApiService.swift */,
+				D0510FBD28B69B3400A73A72 /* VKApi.swift */,
+				D0510FBF28B69B3F00A73A72 /* VKApiService.swift */,
 			);
-			path = UserService;
+			path = VKApiService;
 			sourceTree = "<group>";
 		};
 		D05E659E28A05DD900A9FB6E /* API */ = {
 			isa = PBXGroup;
 			children = (
-				D05E659F28A05DE700A9FB6E /* FriendService */,
-				D04D976528AA75EC000F18BD /* GroupService */,
-				D04D979428AFEC51000F18BD /* PhotoService */,
-				D0510FBC28B69B1300A73A72 /* UserService */,
+				D0510FBC28B69B1300A73A72 /* VKApiService */,
 				D05E65A028A05DFD00A9FB6E /* Error */,
 				D05E65A128A05E1500A9FB6E /* Provider.swift */,
 			);
 			path = API;
-			sourceTree = "<group>";
-		};
-		D05E659F28A05DE700A9FB6E /* FriendService */ = {
-			isa = PBXGroup;
-			children = (
-				D09FEE7928A1B3150042B078 /* FriendApi.swift */,
-				D09FEE7B28A1B3300042B078 /* FriendApiService.swift */,
-			);
-			path = FriendService;
 			sourceTree = "<group>";
 		};
 		D05E65A028A05DFD00A9FB6E /* Error */ = {
@@ -734,16 +692,14 @@
 				D04D978D28AFDA95000F18BD /* AlbumModel.swift in Sources */,
 				D04D979B28B237D1000F18BD /* FriendsCoordinator.swift in Sources */,
 				D00CFD7228BA44F700A10E85 /* DetailInfoView.swift in Sources */,
-				D04D979328AFEC4D000F18BD /* PhotoApi.swift in Sources */,
 				D05E65BC28A1A80300A9FB6E /* AuthWebViewModel.swift in Sources */,
 				D04D977628AF94F3000F18BD /* MainCoordinator.swift in Sources */,
 				D04D979628B02A92000F18BD /* AlbumCellView.swift in Sources */,
-				D04D976928AA7640000F18BD /* GroupApiService.swift in Sources */,
 				D04D978228AFBC74000F18BD /* TabBarCoordinator.swift in Sources */,
 				D05E65A228A05E1500A9FB6E /* Provider.swift in Sources */,
 				D0510FB928B65AE500A73A72 /* UserServerModel.swift in Sources */,
 				D05E65BE28A1A80E00A9FB6E /* AuthWebView.swift in Sources */,
-				D0510FBE28B69B3400A73A72 /* UserApi.swift in Sources */,
+				D0510FBE28B69B3400A73A72 /* VKApi.swift in Sources */,
 				D04D975A28AA5E57000F18BD /* GroupCellView.swift in Sources */,
 				D0510FB028B64E0600A73A72 /* FriendsRouter.swift in Sources */,
 				D04D978928AFD2E5000F18BD /* AlbumListView.swift in Sources */,
@@ -758,14 +714,11 @@
 				D04D978028AFB814000F18BD /* AuthCoordinator.swift in Sources */,
 				D05E65A828A05F4700A9FB6E /* LocalStorage.swift in Sources */,
 				D04D977B28AF98F7000F18BD /* AuthLocalService.swift in Sources */,
-				D04D976728AA7634000F18BD /* GroupApi.swift in Sources */,
-				D0510FC028B69B3F00A73A72 /* UserApiService.swift in Sources */,
+				D0510FC028B69B3F00A73A72 /* VKApiService.swift in Sources */,
 				D0510FB328B6512400A73A72 /* UserInfoViewModel.swift in Sources */,
 				D0510FB728B65AD700A73A72 /* UserModel.swift in Sources */,
-				D04D979128AFEC40000F18BD /* PhotoApiService.swift in Sources */,
 				D0A8DEC928A1C3FF00E591A3 /* FriendCellView.swift in Sources */,
 				D016FE2E289BF596001DA065 /* Consts.swift in Sources */,
-				D09FEE7C28A1B3300042B078 /* FriendApiService.swift in Sources */,
 				D00CFD7528BA7E1B00A10E85 /* UsersRouter.swift in Sources */,
 				D00CFD7928BA96CA00A10E85 /* PhotoModel.swift in Sources */,
 				D00CFD6C28B8421D00A10E85 /* OnlineIcon.swift in Sources */,
@@ -783,7 +736,6 @@
 				D05E65B628A06BE200A9FB6E /* CustomUrlError.swift in Sources */,
 				D00CFD7728BA95BC00A10E85 /* PhotoServerModel.swift in Sources */,
 				D00CFD6328B8329800A10E85 /* FriendInviteButtonStyle.swift in Sources */,
-				D09FEE7A28A1B3150042B078 /* FriendApi.swift in Sources */,
 				D04D975828AA5E4D000F18BD /* GroupListView.swift in Sources */,
 				D00CFD6928B8404C00A10E85 /* InfoButton.swift in Sources */,
 				D04D978B28AFD478000F18BD /* AlbumServerModel.swift in Sources */,

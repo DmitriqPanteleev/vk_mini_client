@@ -12,17 +12,18 @@ import CombineExt
 final class FriendListViewModel: ObservableObject {
     
     // MARK: - DEPERNDECIES
-    let apiService = FriendApiService()
+    let router: FriendsRouter?
+    let api: FriendsListApiProtocol
     
     // MARK: - LOCAL DATA
     let input: Input
     @Published var output: Output
     
-    let router: FriendsRouter?
     private var cancellable = Set<AnyCancellable>()
     
     // MARK: - INIT
-    init(router: FriendsRouter?) {
+    init(router: FriendsRouter?, api: FriendsListApiProtocol) {
+        self.api = api
         self.router = router
         self.input = Input()
         self.output = Output()
@@ -40,7 +41,7 @@ final class FriendListViewModel: ObservableObject {
         
         let request = input.onAppear
             .map{ [unowned self] in
-                self.apiService.getFriends(id: nil)
+                self.api.getFriends(id: nil)
                     // CombineExt's method to wrap event
                     // so event can be alive even after errors for example
                     .materialize()

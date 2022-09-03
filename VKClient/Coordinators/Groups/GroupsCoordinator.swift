@@ -26,7 +26,7 @@ final class GroupsCoordinator: NavigationCoordinatable {
 extension GroupsCoordinator {
     
     @ViewBuilder func makeStart() -> some View {
-        let viewModel = GroupListViewModel(router: self)
+        let viewModel = GroupListViewModel(router: self, api: VKApiService())
         GroupListView(viewModel: viewModel)
     }
     

@@ -9,18 +9,19 @@ import Foundation
 import Combine
 
 final class PhotosViewModel {
-    // MARK: - DEPERNDECIES
-    let apiService = PhotoApiService()
+    // MARK: - DEPENDECIES
+    let api: PhotosApiProtocol
+    let router: AlbumRouter?
     
     // MARK: - LOCAL DATA
     let input: Input
     @Published var output: Output
     
-    let router: AlbumRouter?
     private var cancellable = Set<AnyCancellable>()
     
     // MARK: - INIT
-    init(router: AlbumRouter?) {
+    init(router: AlbumRouter?, api: PhotosApiProtocol) {
+        self.api = api
         self.router = router
         self.input = Input()
         self.output = Output()
@@ -35,7 +36,7 @@ final class PhotosViewModel {
     func bindRequest() {
         let request = input.onAppear
             .map{ [unowned self] in
-                self.apiService.getPhotos(ownerId: String(LocalStorage.current.vkID!),
+                self.api.getPhotos(ownerId: String(LocalStorage.current.vkID!),
                                           albumId: $0)
                     // CombineExt's method to wrap event
                     // so event can be alive even after errors for example

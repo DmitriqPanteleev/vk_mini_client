@@ -10,17 +10,20 @@ import Combine
 
 final class AlbumListViewModel: ObservableObject {
     
-    private let api: AlbumListAPIProtocol
+    // MARK: - DEPENDECIES
+    private let api: AlbumListApiProtocol
     private let router: AlbumRouter?
     
+    // MARK: - LOCAL DATA
     let input: Input
     @Published var output: Output
     
     
     private var cancellable = Set<AnyCancellable>()
     
+    // MARK: - INIT
     init(router: AlbumRouter?,
-         api: AlbumListAPIProtocol) {
+         api: AlbumListApiProtocol) {
         self.router = router
         self.api = api
         self.input = Input()

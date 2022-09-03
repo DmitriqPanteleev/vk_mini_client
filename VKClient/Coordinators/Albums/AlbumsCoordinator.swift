@@ -26,12 +26,12 @@ final class AlbumsCoordinator: NavigationCoordinatable {
 extension AlbumsCoordinator {
     
     @ViewBuilder func makeStart() -> some View {
-        let viewModel = AlbumListViewModel(router: self)
+        let viewModel = AlbumListViewModel(router: self, api: VKApiService())
         AlbumListView(viewModel: viewModel)
     }
     
     @ViewBuilder func makePhotoView(albumId: String) -> some View {
-        let viewModel = PhotosViewModel(router: self)
+        let viewModel = PhotosViewModel(router: self, api: VKApiService())
         PhotosView(albumId: albumId, viewModel: viewModel)
     }
 }

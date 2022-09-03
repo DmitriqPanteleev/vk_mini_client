@@ -11,15 +11,19 @@ import CombineExt
 
 final class GroupListViewModel: ObservableObject {
     
-    let api = GroupApiService()
+    // MARK: - DEPENDECIES
+    let api: GroupsListApiProtocol
+    private weak var router: GroupsRouter?
     
+    // MARK: - LOCAL DATA
     let input: Input
     @Published var output: Output
     
-    private weak var router: GroupsRouter?
     private var cancellable = Set<AnyCancellable>()
     
-    init(router: GroupsRouter?) {
+    // MARK: - INIT
+    init(router: GroupsRouter?, api: GroupsListApiProtocol) {
+        self.api = api
         self.router = router
         self.input = Input()
         self.output = Output()

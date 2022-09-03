@@ -12,21 +12,27 @@ import CombineExt
 final class UserInfoViewModel: ObservableObject {
     
     // MARK: - DEPENDECIES
-    let userApi = UserApiService()
-    let friendapi = FriendApiService()
+    let friendApi: FriendsListApiProtocol
+    let userApi: UserApiProtocol
+    let router: UserRouter?
     
+    // MARK: - LOCAL DATA
     let input: Input
     @Published var output: Output
     
     // MARK: LOCAL VARIABLES
-    let router: UserRouter?
     private let userId: Int
     private var cancellable = Set<AnyCancellable>()
     
     // MARK: - INIT
-    init(userId: Int, router: UserRouter?) {
+    init(router: UserRouter?,
+         userId: Int,
+         userApi: UserApiProtocol,
+         friendApi: FriendsListApiProtocol) {
         self.router = router
         self.userId = userId
+        self.userApi = userApi
+        self.friendApi = friendApi
         self.input = Input()
         self.output = Output()
         
@@ -73,7 +79,7 @@ final class UserInfoViewModel: ObservableObject {
     func bindFriendsRequest() {
         let request = input.onAppear
             .map { [unowned self] in
-                self.friendapi.getFriends(id: self.userId)
+                self.friendApi.getFriends(id: self.userId)
                     .materialize()
             }
             .switchToLatest()
