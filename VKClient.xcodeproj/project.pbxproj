@@ -72,6 +72,8 @@
 		D05E65B928A1A71300A9FB6E /* Extensions+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05E65B828A1A71300A9FB6E /* Extensions+URL.swift */; };
 		D05E65BC28A1A80300A9FB6E /* AuthWebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05E65BB28A1A80300A9FB6E /* AuthWebViewModel.swift */; };
 		D05E65BE28A1A80E00A9FB6E /* AuthWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05E65BD28A1A80E00A9FB6E /* AuthWebView.swift */; };
+		D095AC7328C39D1400901D0B /* ServerListResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D095AC7228C39D1400901D0B /* ServerListResponseModel.swift */; };
+		D095AC7528C39D4100901D0B /* ServerResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D095AC7428C39D4100901D0B /* ServerResponseModel.swift */; };
 		D09FEE7528A1B04A0042B078 /* FriendServerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FEE7428A1B04A0042B078 /* FriendServerModel.swift */; };
 		D09FEE7828A1B0600042B078 /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FEE7728A1B0600042B078 /* FriendModel.swift */; };
 		D09FEE7E28A1B79C0042B078 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09FEE7D28A1B79C0042B078 /* APIError.swift */; };
@@ -143,6 +145,8 @@
 		D05E65B828A1A71300A9FB6E /* Extensions+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+URL.swift"; sourceTree = "<group>"; };
 		D05E65BB28A1A80300A9FB6E /* AuthWebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthWebViewModel.swift; sourceTree = "<group>"; };
 		D05E65BD28A1A80E00A9FB6E /* AuthWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthWebView.swift; sourceTree = "<group>"; };
+		D095AC7228C39D1400901D0B /* ServerListResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerListResponseModel.swift; sourceTree = "<group>"; };
+		D095AC7428C39D4100901D0B /* ServerResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerResponseModel.swift; sourceTree = "<group>"; };
 		D09FEE7428A1B04A0042B078 /* FriendServerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendServerModel.swift; sourceTree = "<group>"; };
 		D09FEE7728A1B0600042B078 /* FriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
 		D09FEE7D28A1B79C0042B078 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
@@ -272,6 +276,7 @@
 		D016FE18289BF20F001DA065 /* ServerModels */ = {
 			isa = PBXGroup;
 			children = (
+				D095AC7128C39CFB00901D0B /* ServerResponseModels */,
 				D04D978A28AFD478000F18BD /* AlbumServerModel.swift */,
 				D09FEE7428A1B04A0042B078 /* FriendServerModel.swift */,
 				D04D975F28AA5E87000F18BD /* GroupServerModel.swift */,
@@ -553,6 +558,15 @@
 			path = AuthWebView;
 			sourceTree = "<group>";
 		};
+		D095AC7128C39CFB00901D0B /* ServerResponseModels */ = {
+			isa = PBXGroup;
+			children = (
+				D095AC7228C39D1400901D0B /* ServerListResponseModel.swift */,
+				D095AC7428C39D4100901D0B /* ServerResponseModel.swift */,
+			);
+			path = ServerResponseModels;
+			sourceTree = "<group>";
+		};
 		D09FEE7628A1B0500042B078 /* LocalModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -690,11 +704,13 @@
 				D04D97AD28B29558000F18BD /* PhotosViewModel.swift in Sources */,
 				D09FEE7528A1B04A0042B078 /* FriendServerModel.swift in Sources */,
 				D04D978D28AFDA95000F18BD /* AlbumModel.swift in Sources */,
+				D095AC7328C39D1400901D0B /* ServerListResponseModel.swift in Sources */,
 				D04D979B28B237D1000F18BD /* FriendsCoordinator.swift in Sources */,
 				D00CFD7228BA44F700A10E85 /* DetailInfoView.swift in Sources */,
 				D05E65BC28A1A80300A9FB6E /* AuthWebViewModel.swift in Sources */,
 				D04D977628AF94F3000F18BD /* MainCoordinator.swift in Sources */,
 				D04D979628B02A92000F18BD /* AlbumCellView.swift in Sources */,
+				D095AC7528C39D4100901D0B /* ServerResponseModel.swift in Sources */,
 				D04D978228AFBC74000F18BD /* TabBarCoordinator.swift in Sources */,
 				D05E65A228A05E1500A9FB6E /* Provider.swift in Sources */,
 				D0510FB928B65AE500A73A72 /* UserServerModel.swift in Sources */,

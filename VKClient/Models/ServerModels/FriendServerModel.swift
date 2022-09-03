@@ -8,16 +8,6 @@
 import Foundation
 import Moya
 
-
-struct ServerResponse: Decodable {
-    let response: ServerFriendResponse
-}
-
-struct ServerFriendResponse: Decodable {
-    let count: Int
-    let items: [FriendServerModel]
-}
-
 struct FriendServerModel: Decodable {
     let id: Int
     let online: Int?

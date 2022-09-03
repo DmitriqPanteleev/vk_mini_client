@@ -19,7 +19,7 @@ extension VKApiService {
     func getUser(id: Int) -> AnyPublisher<UserModel, APIError> {
         provider.requestPublisher(.getUser(id: id))
             .filterSuccessfulStatusCodes()
-            .map(UserResponse.self)
+            .map(ServerResponse<UserServerModel>.self)
             .map {
                 $0.response }
             .map { UserMapper().toLocal(list: $0).first! }
@@ -34,7 +34,7 @@ extension VKApiService {
     func getFriends(id: Int?) -> AnyPublisher<[FriendModel], APIError> {
         provider.requestPublisher(.getFriends(ownerId: id))
             .filterSuccessfulStatusCodes()
-            .map(ServerResponse.self)
+            .map(ServerListResponse<FriendServerModel>.self)
             .map { $0.response.items }
             .map { FriendModelMapper().toLocal(list: $0) }
             .mapError({ _ in
@@ -47,7 +47,7 @@ extension VKApiService {
     func getGroups() -> AnyPublisher<[GroupModel], APIError> {
         provider.requestPublisher(.getGroups)
             .filterSuccessfulStatusCodes()
-            .map(ServerResponse2.self)
+            .map(ServerListResponse<GroupServerModel>.self)
             .map { $0.response.items }
             .map { GroupModelMapper().toLocal(list: $0) }
             .mapError({ _ in
@@ -60,7 +60,7 @@ extension VKApiService {
     func getPhotos(ownerId: String?, albumId: String?) -> AnyPublisher<[PhotoModel], APIError> {
         provider.requestPublisher(.getPhotos(ownerId: ownerId, albumId: albumId))
             .filterSuccessfulStatusCodes()
-            .map(PhotoResponse.self)
+            .map(ServerListResponse<PhotoServerModel>.self)
             .map { $0.response.items }
             .map { PhotoModelMapper().toLocal(list: $0) }
             .mapError({ _ in
@@ -73,7 +73,7 @@ extension VKApiService {
     func getAlbums(ownerId: String?) -> AnyPublisher<[AlbumModel], APIError> {
         provider.requestPublisher(.getAlbums(ownerId: ownerId))
             .filterSuccessfulStatusCodes()
-            .map(ServerResponse3.self)
+            .map(ServerListResponse<AlbumServerModel>.self)
             .map { $0.response.items }
             .map { AlbumModelMapper().toLocal(list: $0) }
             .mapError({ _ in

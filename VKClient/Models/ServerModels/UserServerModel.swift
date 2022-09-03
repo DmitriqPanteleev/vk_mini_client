@@ -7,12 +7,6 @@
 
 import Foundation
 
-// MARK: - Welcome
-struct UserResponse: Decodable {
-    let response: [UserServerModel]
-}
-
-
 // MARK: - ServerModel
 struct UserServerModel: Decodable {
     let id: Int

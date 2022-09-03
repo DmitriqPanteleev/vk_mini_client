@@ -8,15 +8,6 @@
 import Foundation
 import Moya
 
-struct ServerResponse3: Decodable {
-    let response: ServerAlbumResponse
-}
-
-struct ServerAlbumResponse: Decodable {
-    let count: Int
-    let items: [AlbumServerModel]
-}
-
 struct AlbumServerModel: Decodable {
     let id: Int
     let ownerID: Int?

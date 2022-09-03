@@ -8,15 +8,6 @@
 import Foundation
 import Moya
 
-struct ServerResponse2: Decodable {
-    let response: ServerGroupResponse
-}
-
-struct ServerGroupResponse: Decodable {
-    let count: Int
-    let items: [GroupServerModel]
-}
-
 struct GroupServerModel: Decodable {
     let id: Int
     let verified: Int?
