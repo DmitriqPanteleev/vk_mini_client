@@ -115,5 +115,6 @@ protocol UserApiProtocol {
     func getGroups() -> AnyPublisher<[GroupModel], APIError>
     func getUser(id: Int) -> AnyPublisher<UserModel, APIError>
     func getFriends(id: Int?) -> AnyPublisher<[FriendModel], APIError>
+    func getAlbums(ownerId: String?) -> AnyPublisher<[AlbumModel], APIError>
     func getPhotos(ownerId: String?, albumId: String?) -> AnyPublisher<[PhotoModel], APIError>
 }

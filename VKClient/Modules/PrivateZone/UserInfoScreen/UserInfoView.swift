@@ -16,23 +16,37 @@ struct UserInfoView: View {
             VStack {
                 domainView
                 mainIfoView
+                privateAccountView
                 friendInfo
                 HStack {
                     detailInfo
                     Spacer()
                 }
                 friendsList
+                albumsList
                 Spacer()
             }
             .padding(.horizontal, 16)
         }
         .navigationBarTitleDisplayMode(.inline)
-        .navigationTitle("Подробнее")
+        .navigationTitle("")
         .onAppear(perform: onApperSend)
     }
 }
 
 private extension UserInfoView {
+    // MARK: - COMPONENTS
+    @ViewBuilder var privateAccountView: some View {
+        if let model = viewModel.output.user {
+            if (!model.isFriend && model.isClosed) {
+                HStack {
+                    Image(systemName: "eye.slash.circle")
+                        .padding(.horizontal, 10)
+                    Text("Страница пользователя недоступна")
+                }
+            }
+        }
+    }
     
     @ViewBuilder var mainIfoView: some View {
         if let model = viewModel.output.user {
@@ -130,6 +144,7 @@ private extension UserInfoView {
         }
     }
     
+    // MARK: - FRIENDS LIST
     @ViewBuilder var friendsList: some View {
         if let model = viewModel.output.user {
             VStack(alignment: .leading) {
@@ -149,7 +164,33 @@ private extension UserInfoView {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 8) {
                         ForEach(viewModel.output.userFriends) { model in
-                            FriendButton(model: model)
+                            FriendButton(callback: {
+                                onFriendCellTap(id: model.id)
+                            },model: model)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    //MARK: - ALBUMS
+    @ViewBuilder var albumsList: some View {
+        if let model = viewModel.output.user {
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("Альбомы")
+                        .font(.caption)
+                    Text("\(viewModel.output.albumsList.count)")
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                }
+                .padding(.top, 10)
+                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 20) {
+                        ForEach(viewModel.output.albumsList) { model in
+                            AlbumCellView(model: model)
                         }
                     }
                 }
@@ -166,6 +207,10 @@ private extension UserInfoView {
     
     func onInfoButtonTap() {
         viewModel.input.onInfoButtonTap.send()
+    }
+    
+    func onFriendCellTap(id: Int) {
+        viewModel.input.onFriendCellTap.send(id)
     }
 }
 

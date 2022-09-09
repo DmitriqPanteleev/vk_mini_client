@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FriendModel: Identifiable {
+struct FriendModel: Identifiable, Hashable {
     let id: Int
     let isOnline: Bool
     let trackCode: String

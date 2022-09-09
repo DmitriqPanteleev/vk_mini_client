@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FriendButton: View {
+    let callback: () -> Void
     let model: FriendModel
     
     var body: some View {
@@ -16,6 +17,7 @@ struct FriendButton: View {
             Text("\(model.firstName)\n\(model.lastName)")
                 .font(.caption)
         }
+        .onTapGesture(perform: callback)
         .frame(alignment: .center)
     }
 }

@@ -19,7 +19,7 @@ struct FriendCellView: View {
             Spacer()
             isOnline(model.isOnline)
         }
-        .padding(.horizontal, 16)
+        
         .padding(.vertical, 10)
     }
 }

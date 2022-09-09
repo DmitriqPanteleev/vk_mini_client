@@ -9,19 +9,25 @@ import Foundation
 
 final class PhotoModelMapper: BaseModelMapper<PhotoServerModel, PhotoModel> {
     override func toLocal(serverEntity: PhotoServerModel) -> PhotoModel {
-        PhotoModel(albumID: serverEntity.albumID,
-                   date: serverEntity.date,
-                   id: serverEntity.id,
-                   ownerID: serverEntity.ownerID,
-                   canComment: TypesCast.intToBool(serverEntity.ownerID),
-                   minUrl: serverEntity.sizes.first?.url ?? "",
-                   maxUrl: serverEntity.sizes.last?.url ?? "",
-                   text: serverEntity.text,
-                   userID: serverEntity.userID,
-                   hasTags: serverEntity.hasTags,
-                   likes: serverEntity.likes,
-                   comments: serverEntity.comments,
-                   reposts: serverEntity.reposts,
-                   tags: serverEntity.tags)
+        PhotoModel(id: serverEntity.id.orEmpty,
+                   albumID: serverEntity.albumID.orEmpty,
+                   date: serverEntity.date.orEmpty,
+                   postID: serverEntity.postID.orEmpty,
+                   urls: sizeMapper(serverEntity.sizes),
+                   likes: serverEntity.likes.count.orEmpty,
+                   comments: serverEntity.comments?.count ?? -1,
+                   reposts: serverEntity.reposts?.count ?? -1)
+    }
+}
+
+private extension PhotoModelMapper {
+//    func sizeMapper(_ photoURL: [Size]?) -> [Size] {
+//        photoURL?.last ?? Size(height: -1, url: "", type: "", width: 0)
+//    }
+    func sizeMapper(_ photoURL: [Size]?) -> [String] {
+        photoURL?
+            .compactMap {
+                $0.url
+            } ?? Array(repeating: "", count: 1)
     }
 }

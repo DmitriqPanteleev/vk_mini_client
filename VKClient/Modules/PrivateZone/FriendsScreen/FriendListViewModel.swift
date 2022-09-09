@@ -68,6 +68,16 @@ final class FriendListViewModel: ObservableObject {
             .store(in: &cancellable)
     }
     
+//    func bindAlphabet() {
+//        input.onAppear
+//            .sink { [weak self] in
+//                self?.output.alphabet = self?.output.friendList.compactMap {
+//                    $0.firstName.first
+//                } as! [String]
+//            }
+//            .store(in: &cancellable)
+//    }
+    
     func bindFriendTap() {
         input.onFriendTap
             .sink { [weak self] in

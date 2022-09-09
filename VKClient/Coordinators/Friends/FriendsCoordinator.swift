@@ -32,8 +32,7 @@ extension FriendsCoordinator {
     @ViewBuilder func makeFriendInfo(id: Int) -> some View {
         let viewModel = UserInfoViewModel(router: self,
                                           userId: id,
-                                          userApi: VKApiService(),
-                                          friendApi: VKApiService()
+                                          api: VKApiService()
                                           )
         UserInfoView(viewModel: viewModel)
     }

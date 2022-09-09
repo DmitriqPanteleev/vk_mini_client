@@ -7,48 +7,39 @@
 
 import Foundation
 
-// MARK: - Welcome
-struct PhotoResponse: Decodable {
-    let response: PhotoResponseBody
-}
-
-// MARK: - Response
-struct PhotoResponseBody: Decodable {
-    let count: Int
-    let items: [PhotoServerModel]
-}
-
-// MARK: - Item
+// MARK: - Model
 struct PhotoServerModel: Decodable {
-    let albumID, date, id, ownerID: Int
-    let canComment: Int
-    let sizes: [Size]
-    let text: String
-    let userID: Int
-    let hasTags: Bool
+    let albumID, date, id, ownerID: Int?
+    let lat, long: Double?
+    let canComment: Int?
+    let sizes: [Size]?
+    let text: String?
+    let hasTags: Bool?
     let likes: Likes
-    let comments, reposts, tags: Comments
+    let comments, reposts, tags: Comments?
+    let postID: Int?
 
     enum CodingKeys: String, CodingKey {
         case albumID = "album_id"
         case date, id
         case ownerID = "owner_id"
+        case lat, long
         case canComment = "can_comment"
         case sizes, text
-        case userID = "user_id"
         case hasTags = "has_tags"
         case likes, comments, reposts, tags
+        case postID = "post_id"
     }
 }
 
 // MARK: - Comments
 struct Comments: Codable {
-    let count: Int
+    let count: Int?
 }
 
 // MARK: - Likes
 struct Likes: Codable {
-    let count, userLikes: Int
+    let count, userLikes: Int?
 
     enum CodingKeys: String, CodingKey {
         case count
@@ -58,9 +49,8 @@ struct Likes: Codable {
 
 // MARK: - Size
 struct Size: Codable {
-    let height: Int
-    let url: String
-    let type: String
-    let width: Int
+    let height: Int?
+    let url: String?
+    let type: String?
+    let width: Int?
 }
-

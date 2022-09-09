@@ -41,7 +41,7 @@ extension VKApi: TargetType {
             var params: [String: Any] = [:]
             params["access_token"] = LocalStorage.current.token
             params["user_ids"] = "\(id)"
-            params["fields"] = "bdate, city, common_count, counters, domain, followers_count, last_seen, online, photo_max_orig, status, isFriend"
+            params["fields"] = "bdate, city, common_count, counters, domain, followers_count, last_seen, online, photo_max_orig, status, is_friend"
             params["v"] = "5.131"
             
             return .requestParameters(parameters: params, encoding: URLEncoding.default)
@@ -52,8 +52,8 @@ extension VKApi: TargetType {
             if (id != nil) {
                 params["user_id"] = id
             }
-            params["order"] = "hints"
-            params["count"] = 100
+            params["order"] = "name"
+            params["count"] = 300
             params["fields"] = "online, photo_50"
             params["v"] = "5.131"
             
@@ -81,6 +81,7 @@ extension VKApi: TargetType {
                 params["album_id"] = "wall"
             }
             params["extended"] = 1
+            params["count"] = 1000
             params["v"] = "5.131"
             
             return .requestParameters(parameters: params, encoding: URLEncoding.default)
@@ -90,8 +91,9 @@ extension VKApi: TargetType {
             params["access_token"] = LocalStorage.current.token
             if (ownerId != nil) {
                 params["owner_id"] = ownerId
+            } else {
+                params["owner_id"] = LocalStorage.current.vkID
             }
-            params["owner_id"] = LocalStorage.current.vkID
             params["need_system"] = "1"
             params["need_covers"] = "1"
             params["v"] = "5.131"

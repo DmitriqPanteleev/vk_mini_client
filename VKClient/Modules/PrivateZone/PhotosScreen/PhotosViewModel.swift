@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-final class PhotosViewModel {
+final class PhotosViewModel: ObservableObject {
     // MARK: - DEPENDECIES
     let api: PhotosApiProtocol
     let router: AlbumRouter?

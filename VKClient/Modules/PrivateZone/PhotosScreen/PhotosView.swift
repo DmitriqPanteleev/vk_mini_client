@@ -10,13 +10,13 @@ import SwiftUI
 struct PhotosView: View {
     
     let albumId: String
-    let viewModel: PhotosViewModel
+    @StateObject var viewModel: PhotosViewModel
     
     var body: some View {
         VStack {
             photoGrid
         }
-        .navigationBarHidden(true)
+        .padding(.horizontal)
         .onAppear {
             onAppearSend(id: albumId)
         }
@@ -26,17 +26,12 @@ struct PhotosView: View {
 private extension PhotosView {
     @ViewBuilder var photoGrid: some View {
         
-        let gridItems: [GridItem] = [GridItem(),
-                                     GridItem(),
-                                     GridItem()]
+        let gridItems: [GridItem] = Array(repeating: .init(.fixed(100)), count: 3)
         
-        ScrollView(.vertical) {
-            LazyVGrid(columns: gridItems, alignment: .center, spacing: 20) {
+        ScrollView(.vertical, showsIndicators: false) {
+            LazyVGrid(columns: gridItems, alignment: .center, spacing: 10) {
                 ForEach(viewModel.output.photos) { model in
-                    NetworkImage(imageURL: URL(string: model.minUrl)!,
-                                 frameWidth: 100,
-                                 frameHeight: 100,
-                                 radius: 20)
+                    PhotoCellView(model: model)
                 }
             }
         }

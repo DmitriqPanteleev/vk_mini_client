@@ -31,7 +31,7 @@ extension AlbumsCoordinator {
     }
     
     @ViewBuilder func makePhotoView(albumId: String) -> some View {
-        let viewModel = PhotosViewModel(router: self, api: VKApiService())
+        let viewModel = PhotosViewModel(router: nil, api: VKApiService())
         PhotosView(albumId: albumId, viewModel: viewModel)
     }
 }

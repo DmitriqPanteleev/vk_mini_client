@@ -22,7 +22,7 @@ struct AlbumCellView: View {
 private extension AlbumCellView {
     
     var mainImg: some View {
-        NetworkImage(imageURL: URL(string: model.thumbSource!), frameWidth: 150, frameHeight: 150, radius: 20)
+        NetworkImage(imageURL: URL(string: model.thumbSource!), frameWidth: 80, frameHeight: 80, radius: 10)
     }
     
     func title() -> some View {
@@ -31,11 +31,12 @@ private extension AlbumCellView {
                 Text(model.title)
                     .font(.caption)
                     .colorMultiply(.black)
-                    .lineLimit(1)
+                    .lineLimit(2)
                 Text("\(model.size)")
                     .font(.caption2)
                     .foregroundColor(.gray)
             }
+            .frame(width: 80)
         }
     }
 }

@@ -19,7 +19,7 @@ struct AuthWebView: View {
 
 private extension AuthWebView {
     @ViewBuilder var webView: some View{
-        if let url = viewModel.url{
+        if let url = viewModel.url {
             WebViewRepresentable(url: url,
                                  onError: { error in
                                     print(error.description)

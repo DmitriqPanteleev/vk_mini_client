@@ -19,9 +19,7 @@ struct NetworkImage: SwiftUI.View {
     let imageURL: URL?
     let isAnimation: Bool
     
-    init(imageURL: URL?,
-         isAnimation: Bool = true
-    ) {
+    init(imageURL: URL?, isAnimation: Bool = true) {
         self.imageURL = imageURL
         self.isAnimation = isAnimation
     }

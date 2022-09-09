@@ -14,8 +14,6 @@ struct AlbumListView: View {
     var body: some View {
         VStack {
             tableView
-            Divider()
-            Spacer()
         }
         .onAppear(perform: onAppearSend)
         .navigationBarHidden(true)
@@ -37,10 +35,6 @@ private extension AlbumListView {
         .padding(.horizontal)
         .padding(.vertical, 10)
     }
-    
-//    @ViewBuilder var photosFromPage: some View {
-//
-//    }
 }
 
 private extension AlbumListView {

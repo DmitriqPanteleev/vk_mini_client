@@ -12,8 +12,7 @@ import CombineExt
 final class UserInfoViewModel: ObservableObject {
     
     // MARK: - DEPENDECIES
-    let friendApi: FriendsListApiProtocol
-    let userApi: UserApiProtocol
+    let api: UserApiProtocol
     let router: UserRouter?
     
     // MARK: - LOCAL DATA
@@ -27,12 +26,10 @@ final class UserInfoViewModel: ObservableObject {
     // MARK: - INIT
     init(router: UserRouter?,
          userId: Int,
-         userApi: UserApiProtocol,
-         friendApi: FriendsListApiProtocol) {
+         api: UserApiProtocol) {
         self.router = router
         self.userId = userId
-        self.userApi = userApi
-        self.friendApi = friendApi
+        self.api = api
         self.input = Input()
         self.output = Output()
         
@@ -41,15 +38,17 @@ final class UserInfoViewModel: ObservableObject {
     
     func setupBindings() {
         bindUserRequest()
-        bindFriendsRequest()
+        bindFriendsRequest(id: self.userId)
+        bindAlbumsRequest(id: self.userId)
         bindInfoButton()
+        bindCellButton()
     }
     
     func bindUserRequest() {
         
         let request = input.onAppear
             .map{ [unowned self] in
-                self.userApi.getUser(id: self.userId)
+                self.api.getUser(id: self.userId)
                     // CombineExt's method to wrap event
                     // so event can be alive even after errors for example
                     .materialize()
@@ -76,10 +75,10 @@ final class UserInfoViewModel: ObservableObject {
             .store(in: &cancellable)
     }
     
-    func bindFriendsRequest() {
+    func bindFriendsRequest(id: Int) {
         let request = input.onAppear
             .map { [unowned self] in
-                self.friendApi.getFriends(id: self.userId)
+                self.api.getFriends(id: id)
                     .materialize()
             }
             .switchToLatest()
@@ -101,7 +100,33 @@ final class UserInfoViewModel: ObservableObject {
                 }
             }
             .store(in: &cancellable)
+    }
+    
+    func bindAlbumsRequest(id: Int) {
+        let request = input.onAppear
+            .map { [unowned self] in
+                self.api.getAlbums(ownerId: "\(id)")
+                    .materialize()
+            }
+            .switchToLatest()
+            .share()
         
+        request
+            .values()
+            .sink { [weak self] in
+                self?.output.albumsList = $0
+            }
+            .store(in: &cancellable)
+        
+        request
+            .failures()
+            .sink {
+                switch $0 {
+                case .bad: print("bad")
+                case .notFound: print("notFound")
+                }
+            }
+            .store(in: &cancellable)
     }
     
     func bindInfoButton() {
@@ -111,16 +136,27 @@ final class UserInfoViewModel: ObservableObject {
             }
             .store(in: &cancellable)
     }
+    
+    func bindCellButton() {
+        self.input.onFriendCellTap
+            .sink {
+                self.bindFriendsRequest(id: $0)
+                self.router?.goToUsersFriend(id: $0)
+            }
+            .store(in: &cancellable)
+    }
 }
 
 extension UserInfoViewModel {
     struct Input {
         let onAppear = PassthroughSubject<Void, Never>()
         let onInfoButtonTap = PassthroughSubject<Void, Never>()
+        let onFriendCellTap = PassthroughSubject<Int, Never>()
     }
 
     struct Output {
         var user: UserModel?
         var userFriends: [FriendModel] = []
+        var albumsList: [AlbumModel] = []
     }
 }
