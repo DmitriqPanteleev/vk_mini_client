@@ -13,6 +13,13 @@ struct SectionIndexTitles: View {
     @GestureState private var dragLocation: CGPoint = .zero
     
     var body: some View {
+        sectionIndexTitles
+    }
+}
+
+private extension SectionIndexTitles {
+    
+    var sectionIndexTitles: some View {
         VStack {
             ForEach(titles, id: \.self) { title in
                 Text(title)

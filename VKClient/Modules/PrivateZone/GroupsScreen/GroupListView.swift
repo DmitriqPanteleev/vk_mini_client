@@ -15,9 +15,10 @@ struct GroupListView: View {
         VStack {
             tableView
         }
+        .padding(.top, 10)
         .onAppear(perform: onApperSend)
-        .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("Мои группы")
+        .navigationBarColor(.white, textColor: .black)
     }
 }
 

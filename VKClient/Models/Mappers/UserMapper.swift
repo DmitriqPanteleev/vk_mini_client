@@ -16,7 +16,7 @@ final class UserMapper: BaseModelMapper<UserServerModel, UserModel> {
                   isFriend: TypesCast.intToBool(serverEntity.isFriend ?? -1),
                   photoMaxOrig: serverEntity.photoMaxOrig!,
                   status: serverEntity.status.orEmpty,
-                  lastSeen: TypesCast.unixDateToTimeString(serverEntity.lastSeen!.time),
+                  lastSeen: TypesCast.unixDateToTimeString(serverEntity.lastSeen?.time ?? 0),
                   followersCount: serverEntity.followersCount ?? -1,
                   commonCount: serverEntity.commonCount ?? -1,
                   counters: serverEntity.counters ?? [:],

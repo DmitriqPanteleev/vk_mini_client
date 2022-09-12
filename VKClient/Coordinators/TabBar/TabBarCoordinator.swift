@@ -34,8 +34,6 @@ final class TabBarCoordinator: TabCoordinatable {
 
 private extension TabBarCoordinator {
     
-    func customize() {}
-    
     func makeFriends() -> NavigationViewCoordinator<FriendsCoordinator> {
         NavigationViewCoordinator(FriendsCoordinator())
     }

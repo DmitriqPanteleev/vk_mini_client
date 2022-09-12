@@ -11,57 +11,66 @@ struct FriendListView: View {
     
     @StateObject var viewModel: FriendListViewModel
     
+    @State private var text = ""
+    
+    
     var body: some View {
         ZStack {
             ScrollViewReader { scrollProxy in
-                testList
-                .onAppear(perform: onApperSend)
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationTitle("Мои друзья")
-                .overlay(sectionIndexTitles(proxy: scrollProxy))
+                friendsList
+                    .padding(.top, 50)
+                    .overlay(sectionIndexTitles(proxy: scrollProxy))
             }
         }
+        .ignoresSafeArea()
+        .onAppear(perform: onApperSend)
+        .navigationBarHidden(true)
     }
 }
 
 private extension FriendListView {
-    var tableView: some View {
-        LazyVStack {
-            ForEach(viewModel.output.friendList) { model in
-                FriendCellView(model: model)
-                    .onTapGesture {
-                        onFriendTapSend(model.id)
-                    }
-                Divider()
-            }
-        }
-    }
     
-   @ViewBuilder var testList: some View {
+    @ViewBuilder var friendsList: some View {
         let sections = viewModel.output.friendList.map {
             $0.firstName.first?.description
-        }.uniqued()
+        }
+            .uniqued()
         
         List {
-            ForEach(sections, id: \.self) { letter in
+            SearchBar(text: $text)
+            ForEach(text == "" ?
+                    sections
+                    : ["Найдено"], id: \.self) { letter in
                 Section(header: Text(letter!)) {
-                    ForEach(viewModel.output.friendList.filter
-                            {$0.firstName.first?.description == letter}, id: \.self) { friend in
-                        FriendCellView(model: friend)
-                            .onTapGesture {
-                                onFriendTapSend(friend.id)
-                            }
-                    }
+                    ForEach(
+                        text == "" ?
+                        viewModel.output.friendList.filter
+                        {$0.firstName.first?.description == letter}
+                        : viewModel.output.friendList.filter
+                        { $0.fullName.lowercased().contains(text.lowercased()) }
+                        , id: \.self) { friend in
+                            FriendCellView(model: friend)
+                                .onTapGesture {
+                                    onFriendTapSend(friend.id)
+                                }
+                        }
                 }
                 .id(letter)
-            }
-            .refreshable {
-                onApperSend()
             }
         }
         .refreshable {
             onApperSend()
         }
+    }
+    
+    @ViewBuilder func sectionIndexTitles(proxy: ScrollViewProxy) -> some View {
+        let sections = viewModel.output.friendList.map {
+            $0.firstName.first!.description
+        }.uniqued()
+        
+        SectionIndexTitles(proxy: proxy, titles: sections)
+            .frame(maxWidth: .infinity, alignment: .trailing)
+            .padding()
     }
 }
 
@@ -73,16 +82,6 @@ private extension FriendListView {
     func onFriendTapSend(_ id: Int) {
         viewModel.input.onFriendTap.send(id)
     }
-    
-    @ViewBuilder func sectionIndexTitles(proxy: ScrollViewProxy) -> some View {
-        let sections = viewModel.output.friendList.map {
-            $0.firstName.first!.description
-        }.uniqued()
-        
-        SectionIndexTitles(proxy: proxy, titles: sections)
-          .frame(maxWidth: .infinity, alignment: .trailing)
-          .padding()
-      }
 }
 
 //struct FriendListView_Previews: PreviewProvider {

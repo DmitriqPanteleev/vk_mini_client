@@ -54,7 +54,7 @@ private extension DetailInfoView {
         
         if (!model.bdate.isEmpty) {
             HStack {
-                Image(systemName: "house")
+                Image(systemName: "birthday.cake")
                     .padding(.trailing, 5)
                 Text("День рождения: \(model.bdate)")
                     .font(.caption)
