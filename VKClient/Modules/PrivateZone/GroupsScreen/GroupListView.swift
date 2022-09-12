@@ -24,9 +24,15 @@ struct GroupListView: View {
 
 private extension GroupListView {
     var tableView: some View {
-        ScrollView(.vertical, showsIndicators: false) {
+        List {
             ForEach(viewModel.output.groupList) { model in
                 groupButton(model: model)
+            }
+        }
+        .listStyle(.inset)
+        .refreshable {
+            withAnimation {
+                onApperSend()
             }
         }
     }

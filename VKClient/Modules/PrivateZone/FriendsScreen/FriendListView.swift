@@ -18,13 +18,14 @@ struct FriendListView: View {
         ZStack {
             ScrollViewReader { scrollProxy in
                 friendsList
-                    .padding(.top, 50)
+                    .listStyle(.inset)
+                    .padding(.top, 10)
                     .overlay(sectionIndexTitles(proxy: scrollProxy))
             }
         }
-        .ignoresSafeArea()
         .onAppear(perform: onApperSend)
-        .navigationBarHidden(true)
+        .navigationTitle("Мои друзья")
+        .navigationBarColor(.white, textColor: .black)
     }
 }
 
@@ -59,7 +60,9 @@ private extension FriendListView {
             }
         }
         .refreshable {
-            onApperSend()
+            withAnimation {
+                onApperSend()
+            }
         }
     }
     
