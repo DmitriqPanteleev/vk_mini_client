@@ -25,7 +25,7 @@ extension VKApiService {
             .map { UserMapper().toLocal(list: $0).first! }
             .mapError({ error in
                 print(error)
-                   return  .bad
+                return  .bad
             })
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
@@ -38,7 +38,7 @@ extension VKApiService {
             .map { $0.response.items }
             .map { FriendModelMapper().toLocal(list: $0) }
             .mapError({ _ in
-                    .bad
+            .bad
             })
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
@@ -51,7 +51,7 @@ extension VKApiService {
             .map { $0.response.items }
             .map { GroupModelMapper().toLocal(list: $0) }
             .mapError({ _ in
-                    .bad
+            .bad
             })
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
@@ -64,7 +64,7 @@ extension VKApiService {
             .map { $0.response.items }
             .map { PhotoModelMapper().toLocal(list: $0) }
             .mapError({ _ in
-                .bad
+            .bad
             })
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
@@ -77,7 +77,7 @@ extension VKApiService {
             .map { $0.response.items }
             .map { AlbumModelMapper().toLocal(list: $0) }
             .mapError({ _ in
-                    .bad
+            .bad
             })
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()

@@ -51,9 +51,3 @@ private extension SectionIndexTitles {
         return Rectangle().fill(Color.clear)
     }
 }
-
-//struct SectionIndexTitles_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SectionIndexTitle()
-//    }
-//}

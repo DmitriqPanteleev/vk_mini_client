@@ -49,12 +49,12 @@ final class UserInfoViewModel: ObservableObject {
         let request = input.onAppear
             .map{ [unowned self] in
                 self.api.getUser(id: self.userId)
-                    // CombineExt's method to wrap event
-                    // so event can be alive even after errors for example
+                // CombineExt's method to wrap event
+                // so event can be alive even after errors for example
                     .materialize()
             }
             .switchToLatest()
-            // method for many subscribers
+        // method for many subscribers
             .share()
         
         request
@@ -153,7 +153,7 @@ extension UserInfoViewModel {
         let onInfoButtonTap = PassthroughSubject<Void, Never>()
         let onFriendCellTap = PassthroughSubject<Int, Never>()
     }
-
+    
     struct Output {
         var user: UserModel?
         var userFriends: [FriendModel] = []

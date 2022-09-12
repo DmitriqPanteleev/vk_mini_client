@@ -8,12 +8,6 @@
 import Foundation
 import Combine
 
-// token
-// vk1.a.LTQJHwRPhJO8qlyftZGaiP9b2Wg9PP_IW7AjafZSWjtZ8m66MwYo2vBF1fRwADUO9TTAlff_rUSiyQZmWM8q8ciyTzJi45lysbuYlZgLg6n1e3ijRlkGXk1tblk3ce9wiVoicZuENRIQSt52Nje6KuwilPesRj81pMhXn_ZFsogPELKGMla4NXDd312dQj33
-
-// owner_id
-// 400114525
-
 enum LocalStorageKey: String {
     case token
     case vkID

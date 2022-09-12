@@ -13,8 +13,9 @@ final class GroupsCoordinator: NavigationCoordinatable {
     let stack = NavigationStack(initial: \GroupsCoordinator.start)
     
     @Root var start = makeStart
+    
     @Route(.push) var groupInfo = makeGroupInfo
-        
+    
 #if DEBUG
     deinit {
         print("Coordinator \(self) DEINITED!!!")

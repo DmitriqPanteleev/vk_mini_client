@@ -13,6 +13,7 @@ final class FriendsCoordinator: NavigationCoordinatable {
     let stack = NavigationStack(initial: \FriendsCoordinator.start)
     
     @Root var start = makeStart
+    
     @Route(.push) var friendInfo = makeFriendInfo
     @Route(.modal) var detailsInfo = makeDetailedUserInfo
     
@@ -33,7 +34,7 @@ extension FriendsCoordinator {
         let viewModel = UserInfoViewModel(router: self,
                                           userId: id,
                                           api: VKApiService()
-                                          )
+        )
         UserInfoView(viewModel: viewModel)
     }
     

@@ -57,7 +57,6 @@
 		D04D97A728B24066000F18BD /* GroupsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D97A628B24066000F18BD /* GroupsRouter.swift */; };
 		D04D97AA28B294FF000F18BD /* PhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D97A928B294FF000F18BD /* PhotosView.swift */; };
 		D04D97AD28B29558000F18BD /* PhotosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04D97AC28B29558000F18BD /* PhotosViewModel.swift */; };
-		D0510FAB28B5734F00A73A72 /* AppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0510FAA28B5734F00A73A72 /* AppearanceManager.swift */; };
 		D0510FAE28B6474900A73A72 /* AlbumRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0510FAD28B6474900A73A72 /* AlbumRouter.swift */; };
 		D0510FB028B64E0600A73A72 /* FriendsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0510FAF28B64E0600A73A72 /* FriendsRouter.swift */; };
 		D0510FB328B6512400A73A72 /* UserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0510FB228B6512400A73A72 /* UserInfoViewModel.swift */; };
@@ -139,7 +138,6 @@
 		D04D97A628B24066000F18BD /* GroupsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsRouter.swift; sourceTree = "<group>"; };
 		D04D97A928B294FF000F18BD /* PhotosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosView.swift; sourceTree = "<group>"; };
 		D04D97AC28B29558000F18BD /* PhotosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewModel.swift; sourceTree = "<group>"; };
-		D0510FAA28B5734F00A73A72 /* AppearanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceManager.swift; sourceTree = "<group>"; };
 		D0510FAD28B6474900A73A72 /* AlbumRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumRouter.swift; sourceTree = "<group>"; };
 		D0510FAF28B64E0600A73A72 /* FriendsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsRouter.swift; sourceTree = "<group>"; };
 		D0510FB228B6512400A73A72 /* UserInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewModel.swift; sourceTree = "<group>"; };
@@ -374,7 +372,6 @@
 				D05E65B228A067CE00A9FB6E /* Extensions */,
 				D016FE2D289BF596001DA065 /* Consts.swift */,
 				D0B0BEE728A4119100C3BEFD /* URLConstructors.swift */,
-				D0510FAA28B5734F00A73A72 /* AppearanceManager.swift */,
 				D0510FC128B6A2DE00A73A72 /* TypesCast.swift */,
 			);
 			path = Helpers;
@@ -383,14 +380,13 @@
 		D016FE1C289BF277001DA065 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				D0AE7A9528CF320D00104F2D /* Buttons */,
 				D015AB0528CDF20400FB9D85 /* CustomAppBar */,
-				D015AB0228CDE5D400FB9D85 /* Icons */,
 				D00CFD7028BA44D000A10E85 /* DetailInfoScreen */,
-				D00CFD6D28B8DF5700A10E85 /* FriendButton */,
-				D00CFD5F28B8324600A10E85 /* FriendInviteButton */,
+				D015AB0228CDE5D400FB9D85 /* Icons */,
+				D04D975228A97F1D000F18BD /* NetworkImage */,
 				D015AAFB28CB778C00FB9D85 /* SectionIndexTitles */,
 				D015AAFE28CDE39600FB9D85 /* SearchBar */,
-				D04D975228A97F1D000F18BD /* NetworkImage */,
 				D05E65A328A05E9000A9FB6E /* WebView */,
 			);
 			path = Components;
@@ -691,6 +687,15 @@
 			path = Modifiers;
 			sourceTree = "<group>";
 		};
+		D0AE7A9528CF320D00104F2D /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				D00CFD5F28B8324600A10E85 /* FriendInviteButton */,
+				D00CFD6D28B8DF5700A10E85 /* FriendButton */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -831,7 +836,6 @@
 				D00CFD6C28B8421D00A10E85 /* OnlineIcon.swift in Sources */,
 				D09FEE7828A1B0600042B078 /* FriendModel.swift in Sources */,
 				D0AE7A9328CF2ABC00104F2D /* NavigationBarColorModifier.swift in Sources */,
-				D0510FAB28B5734F00A73A72 /* AppearanceManager.swift in Sources */,
 				D05E65B128A0621A00A9FB6E /* FriendListView.swift in Sources */,
 				D04D978728AFD2DF000F18BD /* AlbumListViewModel.swift in Sources */,
 				D05E65B428A067EE00A9FB6E /* WkWebViewExtension.swift in Sources */,

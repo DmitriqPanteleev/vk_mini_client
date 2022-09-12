@@ -37,15 +37,15 @@ final class PhotosViewModel: ObservableObject {
         let request = input.onAppear
             .map{ [unowned self] in
                 self.api.getPhotos(ownerId: String(LocalStorage.current.vkID!),
-                                          albumId: $0)
-                    // CombineExt's method to wrap event
-                    // so event can be alive even after errors for example
+                                   albumId: $0)
+                // CombineExt's method to wrap event
+                // so event can be alive even after errors for example
                     .materialize()
             }
             .switchToLatest()
         // method for many subscribers
-        .share()
-    
+            .share()
+        
         request
             .values()
             .sink { [weak self] in

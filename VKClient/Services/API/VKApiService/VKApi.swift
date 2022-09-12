@@ -45,7 +45,7 @@ extension VKApi: TargetType {
             params["v"] = "5.131"
             
             return .requestParameters(parameters: params, encoding: URLEncoding.default)
-        
+            
         case .getFriends(let id):
             var params: [String: Any] = [:]
             params["access_token"] = LocalStorage.current.token

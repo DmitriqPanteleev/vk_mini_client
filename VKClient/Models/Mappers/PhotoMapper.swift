@@ -21,9 +21,6 @@ final class PhotoModelMapper: BaseModelMapper<PhotoServerModel, PhotoModel> {
 }
 
 private extension PhotoModelMapper {
-//    func sizeMapper(_ photoURL: [Size]?) -> [Size] {
-//        photoURL?.last ?? Size(height: -1, url: "", type: "", width: 0)
-//    }
     func sizeMapper(_ photoURL: [Size]?) -> [String] {
         photoURL?
             .compactMap {

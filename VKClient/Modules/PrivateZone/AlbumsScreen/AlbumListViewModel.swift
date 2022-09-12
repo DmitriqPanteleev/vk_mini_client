@@ -40,12 +40,12 @@ final class AlbumListViewModel: ObservableObject {
         let request = input.onAppear
             .map{ [unowned self] in
                 self.api.getAlbums(ownerId: nil)
-                    // CombineExt's method to wrap event
-                    // so event can be alive even after errors for example
+                // CombineExt's method to wrap event
+                // so event can be alive even after errors for example
                     .materialize()
             }
             .switchToLatest()
-            // method for many subscribers
+        // method for many subscribers
             .share()
         
         request

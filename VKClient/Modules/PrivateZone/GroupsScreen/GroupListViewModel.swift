@@ -41,12 +41,12 @@ final class GroupListViewModel: ObservableObject {
         let request = input.onAppear
             .map{ [unowned self] in
                 self.api.getGroups()
-                    // CombineExt's method to wrap event
-                    // so event can be alive even after errors for example
+                // CombineExt's method to wrap event
+                // so event can be alive even after errors for example
                     .materialize()
             }
             .switchToLatest()
-            // method for many subscribers
+        // method for many subscribers
             .share()
         
         request

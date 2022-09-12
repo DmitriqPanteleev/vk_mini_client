@@ -9,7 +9,7 @@ import Foundation
 import Moya
 
 final class Provider<P>: MoyaProvider<P> where P: TargetType {
-
+    
     convenience init() {
         let endpointClosure = { (target: P) -> Endpoint in
             let defaultEndpointMapping = MoyaProvider
